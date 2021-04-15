@@ -22,10 +22,10 @@ const eventSchema = new Schema({
 
       date_created: {  type: Date, default: Date.now},
 
-      feedback: { 
-          type: Schema.Types.ObjectId,
-          ref: "Feedback" 
-      },
+      // feedback: { 
+      //     type: Schema.Types.ObjectId,
+      //     ref: "Feedback" 
+      // },
 
       images: {
           type: String

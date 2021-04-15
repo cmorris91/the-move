@@ -1,4 +1,5 @@
 const router = require("express").Router();
+
 const bookmarkRoutes = require("./bookmark");
 const userRoutes = require("./users");
 const eventRoutes = require("./event");
