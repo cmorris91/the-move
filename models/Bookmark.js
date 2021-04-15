@@ -5,9 +5,13 @@ const bookmarkSchema = new Schema ({
 
     events: [{
         type: Schema.Types.ObjectId,
-        ref: "events" 
-    }]
-       
+        ref: "Event", 
+    }],
+    
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User", 
+    }
 })
 
 
