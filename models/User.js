@@ -7,24 +7,23 @@ const Schema = mongoose.Schema;
 //     }
 //   }
 
-  const userSchema = new Schema({
-      name: { type: DataTypes.String, required: false},
+  const UserSchema = new Schema({
+      name: { type: String, required: false},
 
       email: {
         type: String,
         required: true,
         unique: true,
-        validate: {
-          isEmail: true,
-        },
+        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
       },
 
       password: {
         type: String,
         required: false,
-        validate: {
-          len: [8],
-        },
+        validate: [
+          ({length}) => length >= 6,
+          "Password should be longer."
+        ],
       },
     })
 
@@ -39,6 +38,6 @@ const Schema = mongoose.Schema;
       };
 
   
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;

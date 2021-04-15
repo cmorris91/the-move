@@ -1,9 +1,10 @@
 const router = require("express").Router();
+
 // controllers will need to be added 
-
-routes.route("/")
+const bookmarkController = require("../../controllers/bookmarkController")
+router.route("/")
     .get(bookmarkController.findAll)
-    .put(bookmarkController.update);
-
-
+    .put(bookmarkController.update)
+    .post(bookmarkController.create)
+    .delete(bookmarkController.remove);
 module.exports = router;
