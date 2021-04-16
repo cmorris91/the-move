@@ -9,6 +9,8 @@ router.route("/:id")
     .get(users.findById)
     
 router.route("/logout/:id")
-    .logout(users.logout)
+
+    .get(users.logout)
+
 
 module.exports = router
