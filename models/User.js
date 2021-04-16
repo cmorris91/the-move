@@ -25,6 +25,11 @@ const Schema = mongoose.Schema;
           "Password should be longer."
         ],
       },
+
+      events: {
+        type: Schema.Types.ObjectId,
+        ref: "Event"
+      }
     })
 
     UserSchema.methods.beforeCreate = function () {
