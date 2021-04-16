@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require ('bcrypt');
 
-// class User extends Model {
-//     checkPassword(loginPw) {
-//       return bcrypt.compareSync(loginPw, this.password);
-//     }
-//   }
-
   const UserSchema = new Schema({
       name: { type: String, required: false},
 
@@ -33,15 +27,31 @@ const bcrypt = require ('bcrypt');
       }
     })
 
-    UserSchema.methods.beforeCreate = function () {
-        this.password = bcrypt.hash(this.password, 10);
-        return this.password;
+    UserSchema.pre('save', function (next) {
+        const user = this;
+      
+        if (!user.isModified('password')) {
+          return next();
+        }
+        bcrypt.genSalt(10, (err, salt) => {
+          if (err) return next(err);
+          bcrypt.hash(user.password, salt, (hashErr, hash) => {
+            if (hashErr) return next(hashErr);  
+            user.password = hash;
+            next();
+          });
+        });
+      });
+
+      UserSchema.methods.checkPassword = function(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
       };
-    
-      UserSchema.methods.beforeUpdate = function () {
-        this.password = bcrypt.hash(this.password, 10);
-        return this.password;
-      };
+      
+    // class User extends Model {
+//     checkPassword(loginPw) {
+//       return bcrypt.compareSync(loginPw, this.password);
+//     }
+//   }
 
   
 const User = mongoose.model("User", UserSchema);
