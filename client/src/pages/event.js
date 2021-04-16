@@ -9,8 +9,6 @@ class Event extends Component {
     eventResults: []
   };
 
- 
-
   //add mapping to event 
   render() {
     return (
