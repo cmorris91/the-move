@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Checkin from "./pages/checkin";
 import Create from "./pages/create"
 import Login from "./pages/login";
+import Event from "./pages/event"
 
 
 
