@@ -7,6 +7,8 @@ router.route("/")
     .post(users.create)
 router.route("/:id")
     .get(users.findById)
-    .delete(users.remove);
+    
+router.route("/logout/:id")
+    .logout(user.logout)
 
 module.exports = router
