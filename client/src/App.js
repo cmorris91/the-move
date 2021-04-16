@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-<<<<<<< HEAD
-=======
 //import from pages and componente files
->>>>>>> 2e68f92c1f71bfd075752368549868a96f4113c8
 
 function App() {
   return (
