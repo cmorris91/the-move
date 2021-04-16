@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require ('bcrypt');
 
 // class User extends Model {
 //     checkPassword(loginPw) {
@@ -25,6 +26,11 @@ const Schema = mongoose.Schema;
           "Password should be longer."
         ],
       },
+
+      events: {
+        type: Schema.Types.ObjectId,
+        ref: "Event"
+      }
     })
 
     UserSchema.methods.beforeCreate = function () {
