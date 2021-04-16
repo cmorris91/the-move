@@ -6,8 +6,10 @@ import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 
 //import from pages and componente files
-import Checkin from "./pages/checkin"
+import Checkin from "./pages/checkin";
+import Create from "./pages/create"
 import Login from "./pages/login";
+import Event from "./pages/event"
 
 
 
