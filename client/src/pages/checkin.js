@@ -39,9 +39,9 @@ function Checkin() {
 
         return(
             <div>
-                {/* <Feedback handleInputChange={handleInputChange}/>
+                <Feedback handleInputChange={handleInputChange}/>
                 <Rating handleInputChange={handleInputChange}/>
-                <Images onChange={handleInputChange}/> */}
+                <Images onChange={handleInputChange}/>
                 <button className="button" onClick={handleFormSubmit} type="submit"/>
             </div>
         )
