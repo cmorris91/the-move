@@ -9,7 +9,9 @@ export default {
     getEvent: function (id) {
       return axios.get("/api/event/" + id)
     },
-
+    getEvents: function () {
+      return axios.get("/api/event/")
+    },
     saveCheckin: function(id, eventData) {
       return axios.put("/api/event/" + id, eventData);
     },
