@@ -9,11 +9,6 @@ import Event from "./pages/event"
 import LogIn from "./pages/LogIn";
 import SeacrhCheckIn from "../src/components/SearchCheckIn"
 
-
-
-
-
-
 function App() {
   return (
     <Router>
@@ -29,6 +24,7 @@ function App() {
           <Route exact path="/searchCheck-in" component={SeacrhCheckIn}/>
           <Route exact path="/event" component={Event}/>
           <Route exact path="/create" component={Create}/>
+          <Route exact path = "/Login" component = {LogIn}/>
           </Switch>
         {/* </Wrapper> */}
       </div>
