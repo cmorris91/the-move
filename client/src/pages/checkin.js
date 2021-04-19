@@ -1,11 +1,11 @@
 
 //Chelsey
-import React, { useState}  from "react";
-import Rating from "../components/Rating";
-import Feedback from "../components/Feedback";
+import React, { useState,useEffect}  from "react";
+// import Rating from "../components/Rating";
+// import Feedback from "../components/Feedback";
 import Images from "../components/Images";
 import {useParams} from "react-router-dom";
-
+import API from "../utils/API"
 function Checkin() {
     const [checkinState, setCheckinState]= useState ({
         comments: "",
