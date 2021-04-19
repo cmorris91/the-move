@@ -7,6 +7,7 @@ import Checkin from "./pages/checkin";
 import Create from "./pages/create"
 import Login from "./pages/login";
 import Event from "./pages/event"
+import SeacrhCheckIn from "../src/components/SearchCheckIn"
 
 
 
@@ -20,7 +21,8 @@ function App() {
         {/* <Wrapper> */}
           <Route exact path="/"  component={Login}/>
           <Route exact path="/home" component={Homepage}/> 
-          <Route exact path="/check-in" component={Checkin}/>
+          <Route exact path="/check-in/:id" component={Checkin}/>
+          <Route exact path="/searchCheck-in" component={SeacrhCheckIn}/>
           <Route exact path="/event" component={Event}/>
           <Route exact path="/create" component={Create}/>
         {/* </Wrapper> */}

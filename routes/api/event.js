@@ -6,6 +6,9 @@ router.route("/")
     .get(eventController.findAll)
     .post(eventController.create)
 
+router.route("/name/:name/city/:city")
+    .get(eventController.findByNameCity)
+
 router.route("/:id")
     .get(eventController.findById)
     .put(eventController.update)
