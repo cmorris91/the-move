@@ -4,11 +4,6 @@ import axios from "axios";
 export default {
     saveEvent: function(eventData) {
         return axios.post("/api/event", eventData);
-<<<<<<< HEAD
-    },
-    getEvents: function() {
-        return axios.get("/api/event")
-=======
       },
 
     getEvent: function (id) {
@@ -21,6 +16,5 @@ export default {
 
     searchCheckinEvent: function(eventData) {
       return axios.get("/api/event/name/" + eventData.name + "/city/" + eventData.city)
->>>>>>> c98003a5bea26d8d67eb46af38d77f1bcbee2905
     }
 }
