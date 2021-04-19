@@ -1,22 +1,53 @@
 
-//Andres
-import React, { Component } from "react";
+//Chelsey
+import React, { useState}  from "react";
+import Rating from "../components/Rating";
+import Feedback from "../components/Feedback";
+import Images from "../components/Images";
+import {useParams} from "react-router-dom";
 
-class Checkin extends Component{
+function Checkin() {
+    const [checkinState, setCheckinState]= useState ({
+        comments: "",
+        images: "",
+        rating: 0
+    })
 
+    const {id} = useParams()
+      useEffect(() => {
+      API.getEvent(id)
+        .then(res => setBook(res.data))
+        .catch(err => console.log(err));
+    }, [])
 
-    render(){
+    
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setCheckinState({...checkinState, [name]: value})
+      };
+
+      function handleFormSubmit(event) {
+        event.preventDefault();
+          API.saveCheckin (id, {
+            feedback: checkinState.comments,
+            images: checkinState.images,
+            rating: checkinState.rating
+          });
+      };
+
         return(
-        <div>
-            <h1>hello</h1>
-            <a href="/">click here please</a>
-        </div>
+            <div>
+                <Feedback handleInputChange={handleInputChange}/>
+                <Rating handleInputChange={handleInputChange}/>
+                <Images onChange={handleInputChange}/>
+                <button className="button" onClick={handleFormSubmit} type="submit"/>
+            </div>
         )
-    }
+    
 }
 
 
-export default  Checkin
+export default Checkin;
 
 //ANDRES
 
