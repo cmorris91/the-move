@@ -1,23 +1,83 @@
 
 //Andres
+import React, { Component,useState } from "react";
+import {Input, FormBtn} from "../components/Forms"
 
-import React, { Component } from "react";
+function LogIn(){
+    const [formObject, setFormObject] = useState({})
+    
 
-class Login extends Component{
+function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+      };
 
+      function handleFormSubmit(event) {
+        event.preventDefault();
+        const{name} =event.target
+        if(name==="login"){
+            console.log("hello")
+        }else if(name==="signup"){
+            console.log("sups")
+        }
+        
+        };
 
-    render(){
         return(
         <div>
-            <h1></h1>
-            <a href="/check-in"></a>
+            <div class="login-card">
+                <h2 class="page-title">Login</h2>
+                <form>
+                <Input
+                onChange={handleInputChange}
+                name="Email"
+                placeholder="Email (required)"
+              />
+                <Input
+                onChange={handleInputChange}
+                name="Password"
+                placeholder="Password (required)"
+              />
+              <FormBtn
+                name="login"
+                placeholder="Login"
+                disabled={!(formObject.Password && formObject.Email)}
+                onClick={handleFormSubmit}
+              ></FormBtn>
+                </form>
+            </div>
+
+
+            <div class="Signup-card">
+          <h2 class="page-title">Signup</h2>
+            <form>
+                    <Input
+                    onChange={handleInputChange}
+                    name="Email"
+                    placeholder="Email (required)"/>
+
+                    <Input
+                    onChange={handleInputChange}
+                    name="Name"
+                    placeholder="Username (required)"/>
+
+                    <Input
+                    onChange={handleInputChange}
+                    name="Password"
+                    placeholder="Password (required)"/>
+
+                    <FormBtn
+                    name="signup"
+                    placeholder="Signup"
+                    disabled={!(formObject.Password && formObject.Email && formObject.Name)}
+                    onClick={handleFormSubmit}/>
+                </form>  
+            </div>  
         </div>
         )
     }
-}
 
-
-export default  Login
+export default LogIn
 
 //andres
 

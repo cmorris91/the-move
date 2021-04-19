@@ -1,4 +1,4 @@
-GINA
+//GINA
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
@@ -27,7 +27,7 @@ class Event extends Component {
    //NEED TO ADD API in API.js
    handleFormSubmit = event => {
      event.preventDefault();
-     API.get
+     //API.get
    }
 
 
