@@ -24,6 +24,7 @@ function App() {
           <Route exact path="/searchCheck-in" component={SeacrhCheckIn}/>
           <Route exact path="/event" component={Event}/>
           <Route exact path="/create" component={Create}/>
+          <Route exact path = "/Login" component = {LogIn}/>
           </Switch>
         {/* </Wrapper> */}
       </div>
