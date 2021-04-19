@@ -1,9 +1,9 @@
 
 //Chelsey
 import React, { useState, useEffect}  from "react";
-import Rating from "../components/Rating";
-import Feedback from "../components/Feedback";
-import Images from "../components/Images";
+// import Rating from "../components/Rating";
+// import Feedback from "../components/Feedback";
+// import Images from "../components/Images";
 import {useParams} from "react-router-dom";
 import API from "../utils/API";
 

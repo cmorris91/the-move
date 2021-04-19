@@ -7,7 +7,7 @@ function SearchCheckIn () {
         name: "",
         city: "",
         results: []
-    });
+    })
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -20,8 +20,7 @@ function SearchCheckIn () {
             name: searchEvent.name,
             city: searchEvent.city,
           })
-        .then(res => console.log(res), 
-        setSearchEvent({...searchEvent, results: res}))
+        .then(res => setSearchEvent({...searchEvent, results: res.data}))
         .catch(err => console.log(err));
       };
 
