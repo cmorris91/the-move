@@ -1,10 +1,12 @@
 
 //Chelsey
-import React, { useState}  from "react";
+import React, { useState, useEffect}  from "react";
 import Rating from "../components/Rating";
 import Feedback from "../components/Feedback";
 import Images from "../components/Images";
 import {useParams} from "react-router-dom";
+import API from "../utils/API";
+
 
 function Checkin() {
     const [checkinState, setCheckinState]= useState ({
@@ -16,7 +18,7 @@ function Checkin() {
     const {id} = useParams()
       useEffect(() => {
       API.getEvent(id)
-        .then(res => setBook(res.data))
+        .then(res => console.log(res))
         .catch(err => console.log(err));
     }, [])
 
@@ -37,9 +39,9 @@ function Checkin() {
 
         return(
             <div>
-                <Feedback handleInputChange={handleInputChange}/>
+                {/* <Feedback handleInputChange={handleInputChange}/>
                 <Rating handleInputChange={handleInputChange}/>
-                <Images onChange={handleInputChange}/>
+                <Images onChange={handleInputChange}/> */}
                 <button className="button" onClick={handleFormSubmit} type="submit"/>
             </div>
         )

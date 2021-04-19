@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import ResultEvents from "./results";
+import API from "../../utils/API"
 
 function SearchCheckIn () {
     const [searchEvent, setSearchEvent]= useState ({
@@ -15,7 +16,7 @@ function SearchCheckIn () {
    
     function handleFormSubmit(event) {
         event.preventDefault();
-          API.searchCheckinEvent ( {
+          API.searchCheckinEvent ({
             name: searchEvent.name,
             city: searchEvent.city,
           })
@@ -49,7 +50,6 @@ function SearchCheckIn () {
             event_name= {event.name}
             event_host = {event.host_name}
             event_date = {event.date}
-
             />
             ))}
             </section> 

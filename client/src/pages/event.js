@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// GINA
-=======
 //GINA
->>>>>>> c98003a5bea26d8d67eb46af38d77f1bcbee2905
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
