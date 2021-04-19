@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// GINA
+=======
 //GINA
+>>>>>>> c98003a5bea26d8d67eb46af38d77f1bcbee2905
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
@@ -7,16 +11,15 @@ import API from "../utils/API";
 class Event extends Component {
   state = {
     search: "",
-    eventResults: [{name:"gina"},{name:"ben"}]
+    eventResults: [],
+    bookmark: []
   };
 
-   //componentdidMount 
-   //api call inside to get all events 
-   //this.setState to update whats inside the state 
-   //NEED TO ADD EVENT API in API.js 
    componentDidMount(){
-     API.getEventList()
-       .then(res => this.setState({ events: res.data.message }))
+     API.getEvents()
+       .then(res => {
+         console.log(res)
+        this.setState({ eventResults: res.data })})
        .catch (err => console.log(err));
    }
 
@@ -24,15 +27,15 @@ class Event extends Component {
      this.setState({ search: event.target.value });
    }
 
-   //NEED TO ADD API in API.js
-   handleFormSubmit = event => {
+   handleBtnClick = event => {
      event.preventDefault();
-     //API.get
+     API.saveEvent(this.state.bookmark)
+     .then(res => {
+      console.log(res)
+     this.setState({ bookmark: res.data })})
+    .catch (err => console.log(err));
    }
 
-
-  //add mapping to event 
-  //need to add images, rating, and user_id(?) within link
   render() {
     return (
       <div>
@@ -42,7 +45,13 @@ class Event extends Component {
           <ListItem key={event._id}>
               <Link to={"/event/" + event._id}>
                 <strong>
-                    {event.name}, {event.host_name}, {event.category}, {event.description}, {event.date}, {event.address}, {event.city}, {event.state}, {event.zipcode}, {event.date_created}
+                    {event.name}, {event.description}, {event.date}, {event.city}
+                    <button className="btn btn-danger"><a href="/check-in"></a>
+                    Check In!
+                </button>
+                <button className="btn" onClick={this.handleBtnClick}>
+                    Bookmark
+                </button>
                 </strong>
               </Link>
           </ListItem>
