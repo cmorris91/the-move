@@ -6,7 +6,7 @@ function SearchCheckIn () {
         name: "",
         city: "",
         results: []
-    });
+    })
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -15,12 +15,11 @@ function SearchCheckIn () {
    
     function handleFormSubmit(event) {
         event.preventDefault();
-          API.searchCheckinEvent ( {
+          API.searchCheckinEvent ({
             name: searchEvent.name,
             city: searchEvent.city,
           })
-        .then(res => console.log(res), 
-        setSearchEvent({...searchEvent, results: res}))
+        .then(res => setSearchEvent({...searchEvent, results: res.data}))
         .catch(err => console.log(err));
       };
 
@@ -49,7 +48,6 @@ function SearchCheckIn () {
             event_name= {event.name}
             event_host = {event.host_name}
             event_date = {event.date}
-
             />
             ))}
             </section> 
