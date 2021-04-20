@@ -18,5 +18,11 @@ export default {
 
     searchCheckinEvent: function(eventData) {
       return axios.get("/api/event/name/" + eventData.name + "/city/" + eventData.city)
+    },
+    login: function(login){
+      return axios.post("/api/user/login", login)
+    },
+    signup: function(signup){
+      return axios.post("/api/user/signup", signup)
     }
 }

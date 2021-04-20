@@ -2,7 +2,6 @@ import React from "react";
 import PlaceSearch from "../PlaceSearch";
 
 
-
 function Navbar() {
     return (
       <nav className="navbar navbar-dark bg-dark">
@@ -17,9 +16,10 @@ function Navbar() {
         </a>
         <div className="locationField">
         <form className="form-inline" >
-            {/* <input className="autocomplete" className="form-control mr-sm-2" placeholder="Search Location" type="text"/> */}
+            
             <PlaceSearch/>
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            
+            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="search()">Search</button>
         </form>
         </div>
     

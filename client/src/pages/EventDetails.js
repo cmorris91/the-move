@@ -54,7 +54,7 @@ function EventDetail () {
             <em>rating: {singleEvent.event.averageRating}</em></p>
             </Grid.Column>
             <Grid.Column width={3}>
-            <h2>testing</h2>
+            <h2>testinge</h2>
             </Grid.Column>
         </Grid>
     )

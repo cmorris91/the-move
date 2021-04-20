@@ -29,6 +29,7 @@ module.exports = {
  
         req.session.save(() => {
           req.session._id = dbModel._id;
+          req.session.user_id =dbModel.name
           req.session.logged_in = true;
           res.status(200).json(dbModel);
       })
@@ -36,6 +37,22 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+ login: function(req, res) {
+    db.User
+      .find({email:req.body.email})
+      .then(dbModel => {
+        if(bcrypt.hash(req.body.password,10) == dbModel.password){
+          req.session.user_id =dbModel.name
+          req.session.logged_in = true;
+          res.status(200).json(dbModel);
+        }else{
+        res.status(500).json(dbModel)  
+        }
+        console.log(req.session)
+
+        })
+      .catch(err => res.status(422).json(err));
+  },
   logout: function(req, res) {
     if (req.session.logged_in) {
       req.session.destroy(() => {
