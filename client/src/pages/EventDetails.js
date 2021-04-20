@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
+import { Grid, Image } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
 function EventDetail () {
     const [singleEvent, setSingleEvent] = useState({
@@ -23,11 +25,19 @@ function EventDetail () {
     
     return (
 
-        <div>
+        <Grid>
+             <br/>
+             <br/>
+             <br/>
             <h1 className="text-center">{singleEvent.event.name}</h1>
                    <br/>
-            <img src={singleEvent.event.images} align="center" style={{margin:"0 auto", width:"200px", display:"block"}}/>
-            <p className="text-center" >{singleEvent.event.host_name}
+            <Grid.Column width={4}>
+            <br/>
+            <Image src={singleEvent.event.images} style={{margin:"0 auto", width:"200px", display:"block"}}/>
+            </Grid.Column>
+            <Grid.Column width={9}>
+            <br/>
+            <p>{singleEvent.event.host_name}
                     <br/>
             {singleEvent.event.category}
                     <br/>
@@ -41,8 +51,12 @@ function EventDetail () {
                     <br/>
             {singleEvent.event.date_created}
                     <br/>
-            <em>rating: {singleEvent.event.rating}</em></p>
-            </div>
+            <em>rating: {singleEvent.event.averageRating}</em></p>
+            </Grid.Column>
+            <Grid.Column width={3}>
+            <h2>testing</h2>
+            </Grid.Column>
+        </Grid>
     )
 }
 
