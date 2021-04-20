@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Checkin from "./pages/checkin";
 import Create from "./pages/create"
 import Event from "./pages/event"
-import LogIn from "./pages/LogIn";
+import login from "./pages/login";
 import SeacrhCheckIn from "../src/components/SearchCheckIn"
 import EventDetail from "./pages/EventDetails"
 const session = require('express-session');
@@ -24,7 +24,7 @@ function App() {
         {/* <Wrapper> */}
         <Switch>
           <Route exact path="/">
-            {session.loggedIn ? <Redirect to="/home" /> : <LogIn/>}
+            {session.loggedIn ? <Redirect to="/home" /> : <login/>}
            
           </Route>
           <Route exact path="/home" component={Homepage}/> 
@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/event" component={Event}/>
           <Route exact path="/create" component={Create}/>
           <Route exact path="/event/:id" component={EventDetail}/>
-          <Route exact path = "/Login" component = {LogIn}/>
+          <Route exact path = "/Login" component = {login}/>
 
           </Switch>
         {/* </Wrapper> */}
