@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PlacesAutocomplete from 'react-places-autocomplete';
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
-import PlaceSearch from "./components/PlaceSearch";
 import Checkin from "./pages/checkin";
 import Create from "./pages/create"
 import Event from "./pages/event"
