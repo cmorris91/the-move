@@ -2,23 +2,35 @@
 //Andres
 import React, { Component,useState } from "react";
 import {Input, FormBtn} from "../components/Forms"
+import Event from "../pages/event"
+import API from "../utils/API"
+function LogIn(props){
+  const [formObject, setFormObject] = useState({
+  
+  })
 
-function LogIn(){
-    const [formObject, setFormObject] = useState({})
+   
     
 
 function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
+        console.log(formObject.password)
       };
 
       function handleFormSubmit(event) {
         event.preventDefault();
         const{name} =event.target
         if(name==="login"){
-            console.log("hello")
+          console.log(formObject.password)
+            API.login({name:formObject.name, email:formObject.email, password:formObject.password})
+            
+            .then(res =>console.log(res))
+            .catch(err => console.log(err));
         }else if(name==="signup"){
-            console.log("sups")
+          API.signup({name:formObject.name, email:formObject.email, password:formObject.password})
+          .then(res =>console.log(res))
+            .catch(err => console.log(err));
         }
         
         };
@@ -76,7 +88,6 @@ function handleInputChange(event) {
         </div>
         )
     }
-
 export default LogIn
 
 //andres
