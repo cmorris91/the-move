@@ -1,7 +1,6 @@
 const router = require("express").Router();
-// add controller folders
-
 const eventController = require("../../controllers/eventController")
+
 router.route("/")
     .get(eventController.findAll)
     .post(eventController.create)

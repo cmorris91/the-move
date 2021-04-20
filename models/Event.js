@@ -32,6 +32,10 @@ const eventSchema = new Schema({
           type: [Number]
       },
 
+      averageRating: {
+        type: Number
+      }, 
+
       user_id: {
         type: Schema.Types.ObjectId,
         ref: "User"
@@ -39,6 +43,14 @@ const eventSchema = new Schema({
       
 });
 
+eventSchema.methods.getRating = function() {
+  let sum = 0
+  for(var i = 0; i< this.rating.length; i++) {
+    let sumResults = sum += this.rating[i]
+    this.averageRating = sumResults / this.rating.length
+  }
+  return this.averageRating
+};
 
 
   const Event = mongoose.model("Event", eventSchema);
