@@ -25,8 +25,12 @@ module.exports = {
   },
 
   create: function(req, res) {
+    const event = new db.Event(req.body);
+    event.getRating();
+    console.log(event)
+
     db.Event
-      .create(req.body)
+      .create(event)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
