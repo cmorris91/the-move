@@ -4,13 +4,17 @@ const router = require("express").Router();
 const users = require("../../controllers/userController")
 router.route("/")
     .get(users.findAll)
-    .post(users.create)
+    
 router.route("/:id")
     .get(users.findById)
     
 router.route("/logout/:id")
-
     .get(users.logout)
 
+router.route("/login")
+    .post(users.login)
+
+router.route("/signup")
+    .post(users.create)
 
 module.exports = router
