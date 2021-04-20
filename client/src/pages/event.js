@@ -55,6 +55,7 @@ class Event extends Component {
                 </strong>
               </Link>
           </ListItem>
+
         ))}
         </List>
       </div>
