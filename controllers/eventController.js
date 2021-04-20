@@ -17,9 +17,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findByNameCity: function(req, res) {
+  find: function(req, res) {
     db.Event
-    .findAll ({name: req.params.name}, {city: req.params.city})
+    .find ({name: req.params.name, city: req.params.city})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },

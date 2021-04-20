@@ -7,7 +7,7 @@ router.route("/")
     .post(eventController.create)
 
 router.route("/name/:name/city/:city")
-    .get(eventController.findByNameCity)
+    .get(eventController.find)
 
 router.route("/:id")
     .get(eventController.findById)
