@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import ResultEvents from "./results";
 import API from "../../utils/API"
+import "./"
 function SearchCheckIn () {
     const [searchEvent, setSearchEvent]= useState ({
         name: "",
@@ -13,6 +14,7 @@ function SearchCheckIn () {
         setSearchEvent({...searchEvent, [name]: value})
       };
    
+      
     function handleFormSubmit(event) {
         event.preventDefault();
           API.searchCheckinEvent ({
@@ -20,6 +22,7 @@ function SearchCheckIn () {
             city: searchEvent.city,
           })
         .then(res => setSearchEvent({...searchEvent, results: res.data}))
+        .then(console.log(searchEvent))
         .catch(err => console.log(err));
       };
 
@@ -37,7 +40,7 @@ function SearchCheckIn () {
                 placeholder="Enter Event City"/>
                 <button className="button" 
                 onClick={handleFormSubmit}
-                type="submit" />
+                type="submit">Search</button>
             </form>
 
             <section className="searchEventsContainer">

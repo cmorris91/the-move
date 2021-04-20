@@ -2,7 +2,7 @@
 //Chelsey
 import React, { useState, useEffect}  from "react";
 // import Rating from "../components/Rating";
-// import Feedback from "../components/Feedback";
+import Feedback from "../components/Feedback";
 // import Images from "../components/Images";
 import {useParams} from "react-router-dom";
 import API from "../utils/API";
@@ -39,17 +39,17 @@ function Checkin() {
 
         return(
             <div>
-                <Feedback handleInputChange={handleInputChange}/>
-                <Rating handleInputChange={handleInputChange}/>
-                <Images onChange={handleInputChange}/>
-                <button className="button" onClick={handleFormSubmit} type="submit"/>
+                <Feedback handleInputChange={handleInputChange}
+                name="comments"/>
+                {/* <Rating handleInputChange={handleInputChange}/>
+                <Images onChange={handleInputChange}/> */}
+                <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
             </div>
         )
     
 }
 
-
 export default Checkin;
 
-//ANDRES
+
 
