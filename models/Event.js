@@ -22,18 +22,19 @@ const eventSchema = new Schema({
 
       date_created: {  type: Date, default: Date.now},
 
-      // feedback: { 
-      //     type: Schema.Types.ObjectId,
-      //     ref: "Feedback" 
-      // },
+      feedback: { type: Array },
 
       images: {
           type: String
       },
   
       rating: {
-          type: Number
+          type: [Number]
       },
+
+      averageRating: {
+        type: Number
+      }, 
 
       user_id: {
         type: Schema.Types.ObjectId,
@@ -41,6 +42,16 @@ const eventSchema = new Schema({
       }
       
 });
+
+eventSchema.methods.getRating = function() {
+  let sum = 0
+  for(var i = 0; i< this.rating.length; i++) {
+    let sumResults = sum += this.rating[i]
+    this.averageRating = sumResults / this.rating.length
+  }
+  return this.averageRating
+};
+
 
   const Event = mongoose.model("Event", eventSchema);
 

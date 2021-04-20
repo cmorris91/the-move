@@ -25,16 +25,23 @@ module.exports = {
   },
 
   create: function(req, res) {
+    const event = new db.Event(req.body);
+    event.getRating();
+    console.log(event)
+
     db.Event
-      .create(req.body)
+      .create(event)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    console.log(req.body)
     db.Event
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, {$push: {rating:req.body.rating, feedback: req.body.feedback}})
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(err)
+        res.status(422).json(err)});
   },
   remove: function(req, res) {
     db.Event

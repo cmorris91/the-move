@@ -29,13 +29,17 @@ class Event extends Component {
      .then(res => {
       console.log(res)
      this.setState({ bookmark: res.data })})
+     this.context.router.push({
+      pathname: '/event/:id',
+      state: {event: this.state.eventResults}  
+    })
     .catch (err => console.log(err));
    }
 
   render() {
     return (
       <div>
-        <h1 className="text-ceaa'nter">List of Events</h1>
+        <h1 className="text-center">List of Events</h1>
         <List>
         {this.state.eventResults.map(event => (
           <ListItem key={event._id}>

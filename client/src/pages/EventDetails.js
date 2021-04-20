@@ -1,62 +1,49 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import Event from "./event";
 
-const EventDetail = props => {
-    const [singleEvent, setSingleEvent] = useState();
+function EventDetail () {
+    const [singleEvent, setSingleEvent] = useState({
+        event: [],
+    });
+
+    const url = window.location.pathname;
+    const id = url.substring(url.lastIndexOf('/') + 1);
 
     useEffect(() => {
-        API.getEvent(singleEvent.match.params.id)
+        API.getEvent (id)
             .then(res => {
-                console.log(res)
-                setSingleEvent({ event: res.data })})
+            console.log(res)
+            setSingleEvent({ ...singleEvent, event: res.data })})
             .catch(err => console.log(err));
+            console.log(singleEvent)
     }, []);
 
-    // const addBookmark = () => {
-    //     setSingleEvent({
-    //         type: Event,
-    //         post: state.currentPost
-    //     });
-    // };
+    console.log(singleEvent);
 
-    // const removeBookmark = () => {
-    //     setSingleEvent({
-    //         type: Event,
-    //         _id: state.currentPost._id
-    //     });
-    // };
     
-    console.log(props)
     return (
 
         <div>
-            <h1>{singleEvent.specific.name}</h1>
+            <h1 className="text-center">{singleEvent.event.name}</h1>
                    <br/>
-            {singleEvent.specific.images}
-            <p>{singleEvent.specific.host_name}
+            <img src={singleEvent.event.images} align="center" style={{margin:"0 auto", width:"200px", display:"block"}}/>
+            <p className="text-center" >{singleEvent.event.host_name}
                     <br/>
-            {singleEvent.specific.category}
+            {singleEvent.event.category}
                     <br/>
-            {singleEvent.specific.description}
+            {singleEvent.event.description}
                     <br/>
-            {singleEvent.specific.date}
+            {singleEvent.event.date}
                     <br/>
-            {singleEvent.specific.address}
-            {singleEvent.specific.city}
+            {singleEvent.event.address}
                     <br/>
-            {singleEvent.specific.state}
+            {singleEvent.event.city}, {singleEvent.event.state} {singleEvent.event.zipcode}
                     <br/>
-            {singleEvent.specific.zipcode}
+            {singleEvent.event.date_created}
                     <br/>
-            {singleEvent.specific.date_created}
-                    <br/>
-            <em>{singleEvent.specific.rating}</em></p>
-                
-
+            <em>rating: {singleEvent.event.rating}</em></p>
             </div>
     )
 }
-
 
 export default EventDetail;
