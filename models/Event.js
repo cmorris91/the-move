@@ -22,17 +22,14 @@ const eventSchema = new Schema({
 
       date_created: {  type: Date, default: Date.now},
 
-      // feedback: { 
-      //     type: Schema.Types.ObjectId,
-      //     ref: "Feedback" 
-      // },
+      feedback: { type: Array },
 
       images: {
           type: String
       },
   
       rating: {
-          type: Number
+          type: [Number]
       },
 
       user_id: {
@@ -41,6 +38,8 @@ const eventSchema = new Schema({
       }
       
 });
+
+
 
   const Event = mongoose.model("Event", eventSchema);
 
