@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import ResultEvents from "./results";
 import API from "../../utils/API"
-import "./"
+
 function SearchCheckIn () {
     const [searchEvent, setSearchEvent]= useState ({
         name: "",
@@ -38,6 +38,7 @@ function SearchCheckIn () {
                 name="city"
                 onChange={handleInputChange}
                 placeholder="Enter Event City"/>
+
                 <button className="button" 
                 onClick={handleFormSubmit}
                 type="submit">Search</button>
