@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import PlacesAutocomplete from 'react-places-autocomplete';
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
+import PlaceSearch from "./components/PlaceSearch";
 import Checkin from "./pages/checkin";
 import Create from "./pages/create"
 import Event from "./pages/event"
@@ -15,11 +16,13 @@ import EventDetail from "./pages/EventDetails"
 
 
 
+
 function App() {
   return (
     <Router>
       <div>
         <Navbar />
+       
         {/* <Wrapper> */}
         <Switch>
           <Route exact path={["/"]}>
@@ -31,6 +34,8 @@ function App() {
           <Route exact path="/event" component={Event}/>
           <Route exact path="/create" component={Create}/>
           <Route exact path="/event/:id" component={EventDetail}/>
+          <Route exact path = "/Login" component = {LogIn}/>
+
           </Switch>
         {/* </Wrapper> */}
       </div>
