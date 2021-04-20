@@ -1,19 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import PlacesAutocomplete from 'react-places-autocomplete';
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
+import PlaceSearch from "./components/PlaceSearch";
 import Checkin from "./pages/checkin";
 import Create from "./pages/create"
 import Event from "./pages/event"
 import LogIn from "./pages/LogIn";
-import SeacrhCheckIn from "../src/components/SearchCheckIn"
+import SeacrhCheckIn from "../src/components/SearchCheckIn";
+
 
 function App() {
   return (
     <Router>
       <div>
         <Navbar />
+       
         {/* <Wrapper> */}
         <Switch>
           <Route exact path={["/"]}>
