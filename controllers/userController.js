@@ -22,16 +22,16 @@ module.exports = {
         res.json({dbModel, session: req.session})})
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  signup: function(req, res) {
+    const users = new db.User(req.body);
     db.User
-      .create(req.body)
+      .create(users)
       .then(dbModel => {
  
         req.session.save(() => {
           req.session._id = dbModel._id;
           req.session.user_id =dbModel.name
-          req.session.logged_in = true;
-          res.status(200).json(dbModel);
+          res.status(200).json({dbModel});
       })
     })
       .catch(err => res.status(422).json(err));
@@ -39,23 +39,25 @@ module.exports = {
 
  login: function(req, res) {
     db.User
+ 
       .find({email:req.body.email})
+      
       .then(dbModel => {
-        if(bcrypt.hash(req.body.password,10) == dbModel.password){
+        console.log(dbModel[0].password)
+        if(req.body.password == dbModel[0].password){
+          req.session._id = dbModel._id;
           req.session.user_id =dbModel.name
           req.session.logged_in = true;
-          res.status(200).json(dbModel);
+          res.status(200).json({dbModel});
         }else{
-        res.status(500).json(dbModel)  
+        res.status(404).json({message:"password or email are incorrect"})  
         }
-        console.log(req.session)
-
         })
       .catch(err => res.status(422).json(err));
   },
   logout: function(req, res) {
     if (req.session.logged_in) {
-      req.session.destroy(() => {
+      localStorage.clear(() => {
         res.status(204).end();
       });
     } else {

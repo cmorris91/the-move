@@ -15,6 +15,6 @@ router.route("/login")
     .post(users.login)
 
 router.route("/signup")
-    .post(users.create)
+    .post(users.signup)
 
 module.exports = router
