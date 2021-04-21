@@ -1,7 +1,7 @@
 import React from "react"
 
 
-export function Col({ size, children }) {
+function Col({ size, children }) {
     return (
       <div
         className={size
@@ -13,3 +13,5 @@ export function Col({ size, children }) {
       </div>
     );
 }
+
+export default Col
