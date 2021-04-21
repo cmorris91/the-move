@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import API from "../utils/API"
 
 function Create () {
-    
     const [eventState, setEventState] = useState({
         name:"",
         host_name: "",
@@ -34,7 +33,9 @@ function Create () {
             state: eventState.state,
             zipcode: eventState.zipcode
           })
-            .then(res => console.log(res))
+            .then(res => {
+                alert("Your Event Has Been Created")
+                console.log(res)})
             .catch(err => console.log(err));
         
       };
@@ -46,16 +47,34 @@ function Create () {
             <form className="row g-3">
                 <div className="col-md-12  inputs">
                     <label for="eventDate">Event Date</label>
-                    <input type="date" id="eventDate" name="date" className="drop-down" onChange={handleInputChange}/>
+                    <input type="date" 
+                    id="eventDate" 
+                    name="date" 
+                    className="drop-down" 
+                    onChange={handleInputChange}/>
                 </div>
                 <div className="col-md-12 inputs">
-                    <input type="text" className="form-control" id="inputEventName" placeholder="Event Name" name="name" onChange={handleInputChange}/>
+                    <input type="text" 
+                    className="form-control" 
+                    id="inputEventName" 
+                    placeholder="Event Name" 
+                    name="name" 
+                    onChange={handleInputChange}/>
                 </div>
                 <div className= "col-md-12 inputs">
-                    <input type="text" className="form-control" id="inputHostName" placeholder="Host Name" name="host_name" onChange={handleInputChange}/>
+                    <input type="text" 
+                    className="form-control" 
+                    id="inputHostName" 
+                    placeholder="Host Name" 
+                    name="host_name" 
+                    onChange={handleInputChange}/>
                 </div>
                 <div className= "col-md-12 inputs">
-                    <select id="inputEventType" className="form-select drop-down" style={{width: "100%"}} name="category" onChange={handleInputChange}>
+                    <select id="inputEventType" 
+                    className="form-select drop-down" 
+                    style={{width: "100%"}} 
+                    name="category" 
+                    onChange={handleInputChange}>
                         <option>Type of Event</option>
                         <option value="sports">Sports</option>
                         <option value="Arts&Crafts">Arts &amp; Cratfs</option>
@@ -65,16 +84,34 @@ function Create () {
                     </select>
                 </div>
                 <div className="form-floating col-md-12 inputs">
-                    <textarea className="form-control" placeholder="Tell Us About Your Event!" id="eventDescription" style="height: 100px" name="description" onChange={handleInputChange}></textarea>
+                    <textarea className="form-control" 
+                    placeholder="Tell Us About Your Event!" 
+                    id="eventDescription" 
+                    style={{height: "100px"}} 
+                    name="description" 
+                    onChange={handleInputChange}></textarea>
                 </div>
                 <div className= "col-md-12 inputs">
-                    <input type="text" className="form-control" id="inputStreetAddress" placeholder="Enter Street Address" name="address" onChange={handleInputChange}/>
+                    <input type="text" 
+                    className="form-control" 
+                    id="inputStreetAddress" 
+                    placeholder="Enter Street Address" 
+                    name="address" 
+                    onChange={handleInputChange}/>
                 </div>
                 <div className= "col-md-12 inputs">
-                    <input type="text" className="form-control" id="inputCity" placeholder="City" name="city" onChange={handleInputChange}/>
+                    <input type="text" 
+                    className="form-control" id="inputCity" 
+                    placeholder="City" name="city" 
+                    onChange={handleInputChange}/>
                 </div>
                 <div className= "col-md-12 inputs">
-                    <select id="inputState" className="form-select drop-down" placeholder="State" style={{width: "100%"}} name="state" onChange={handleInputChange}>
+                    <select id="inputState" 
+                    className="form-select drop-down" 
+                    placeholder="State" 
+                    style={{width: "100%"}} 
+                    name="state" 
+                    onChange={handleInputChange}>
                         <option>State</option>
                         <option value="Alabama">Alabama</option>
                         <option value="Alaska">Alaska</option>
@@ -129,20 +166,30 @@ function Create () {
                     </select>
                 </div>
                 <div className="col-md-12 inputs">
-                    <input type="text" className="form-control" id="inputZip" placeholder="Zip Code" name="zipcode" onChange={handleInputChange}/>
+                    <input type="text" 
+                    className="form-control" 
+                    id="inputZip" 
+                    placeholder="Zip Code" 
+                    name="zipcode" 
+                    onChange={handleInputChange}/>
                 </div>
-                <div className="mb-12 col-md-12 inputs">
+                {/* <div className="mb-12 col-md-12 inputs">
                     <label for="exampleFormControlTextarea1" className="form-label">Who would you like to invite?</label>
-                    <textarea className="form-control" id="inputEmails" rows="3" placeholder="ex c@c.com, j@j.com" ></textarea>
-                </div>
+                    <textarea className="form-control" 
+                    id="inputEmails" 
+                    rows="3" 
+                    placeholder="ex c@c.com, j@j.com" ></textarea>
+                </div> */}
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" onClick={handleFormSubmit}>Submit</button>
+                    <button type="submit" 
+                    class="btn btn-primary" 
+                    onClick={handleFormSubmit}>Submit</button>
                 </div>
             </form>
         </section>
-        <div class="login-alert">
+        {/* <div class="login-alert">
             <p>Please <a href='/login'> LogIn to Create an event</a></p>
-        </div>
+        </div> */}
     </div>
 
     )
