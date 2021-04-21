@@ -36,6 +36,10 @@ export default {
 
     signup: function(signup){
       return axios.post("/api/user/signup", signup)
+    },
+
+    getLocationList: function(description) {
+      return axios.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyAASHUvtgIzAHEr6NyyZA9J4X0zo0GKYc4&libraries=places")
     }
 
 }
