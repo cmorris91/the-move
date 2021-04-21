@@ -1,8 +1,12 @@
 .footer {
-    min-height: 100px;
-    background:black;
-    position:sticky;
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
     
   }
   
+.text {
+  justify-content:flex-start;
+}
   
