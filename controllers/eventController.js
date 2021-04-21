@@ -6,7 +6,8 @@ module.exports = {
       .find(req.query)
       .populate("User")
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
@@ -37,13 +38,17 @@ module.exports = {
   },
 
   update: function(req, res) {
-    console.log(req.body)
+  
     db.Event
       .findOneAndUpdate({ _id: req.params.id }, 
         {$push: {rating:req.body.rating, 
         feedback: req.body.feedback, 
         images: req.body.images}})
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        const event = new db.Event(dbModel);
+        event.getRating();
+        console.log(event)
+        res.json(event)})
       .catch(err => {
         console.log(err)
         res.status(422).json(err)});
