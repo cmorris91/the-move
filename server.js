@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 //connecting database to mongostore
 const store = new MongoDBStore({
   uri: 'mongodb://localhost:27017/connect_mongodb_session_test',
-  collection: 'mySessions'
+  collection: 'sessions'
 });
 store.on('error', function(error) {
   console.log(error);
@@ -26,6 +26,7 @@ app.use(express.json());
 // Serve up static assets (usually on heroku)
 
 // using session to store user's login data
+
 app.use(require('express-session')({
   secret: 'this is as secret as it can get',
   cookie: {
@@ -35,6 +36,8 @@ app.use(require('express-session')({
   resave: false,
   saveUninitialized: false
 }));
+
+
 // Add routes, both API and view
 
 
