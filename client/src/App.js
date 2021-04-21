@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Checkin from "./pages/checkin";
 import Create from "./pages/create"
 import Event from "./pages/event"
-import login from "./pages/login";
+import Login from "./pages/login";
 import SeacrhCheckIn from "../src/components/SearchCheckIn"
 import EventDetail from "./pages/EventDetails"
 import Bookmark from "./pages/Bookmark";
@@ -17,6 +17,8 @@ const session = require('express-session');
 
 
 function App() {
+  let login = true
+
   return (
     <Router>
       <div>
@@ -25,7 +27,7 @@ function App() {
         {/* <Wrapper> */}
         <Switch>
           <Route exact path="/">
-            {session.loggedIn ? <Redirect to="/home" /> : <login/>}
+            {login == true ? <Redirect push to="/home" /> : <Login/>}
            
           </Route>
           <Route exact path="/home" component={Homepage}/> 
@@ -34,7 +36,7 @@ function App() {
           <Route exact path="/event" component={Event}/>
           <Route exact path="/create" component={Create}/>
           <Route exact path="/event/:id" component={EventDetail}/>
-          <Route exact path = "/Login" component = {login}/>
+          <Route exact path = "/Login" component = {Login}/>
           <Route exact path="/bookmark" component={Bookmark}/>
 
           </Switch>
