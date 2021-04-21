@@ -36,6 +36,8 @@ class Event extends Component {
     .catch (err => console.log(err));
    }
 
+
+   //check-in button need to reroute to /check-in page
   render() {
     return (
       <div>
@@ -46,12 +48,6 @@ class Event extends Component {
               <Link to={"/event/" + event._id}  specific={event} >
                 <strong>
                     {event.name}, {event.description}, {event.date}, {event.city}
-                    <button className="btn btn-danger"><a href="/check-in"></a>
-                    Check In!
-                </button>
-                <button className="btn" onClick={this.handleBtnClick}>
-                    Bookmark
-                </button>
                 </strong>
               </Link>
           </ListItem>
