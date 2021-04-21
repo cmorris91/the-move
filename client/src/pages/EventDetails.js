@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
 function EventDetail () {
@@ -25,15 +25,15 @@ function EventDetail () {
     
     return (
 
-        <Grid>
+        <Container textAlign="center">
              <br/>
              <br/>
              <br/>
-            <h1 className="text-center">{singleEvent.event.name}</h1>
+            <h1>{singleEvent.event.name}</h1>
                    <br/>
             <Grid.Column width={4}>
             <br/>
-            <Image src={singleEvent.event.images} style={{margin:"0 auto", width:"200px", display:"block"}}/>
+            <Image src={singleEvent.event.images} size='medium' centered />
             </Grid.Column>
             <Grid.Column width={9}>
             <br/>
@@ -52,11 +52,15 @@ function EventDetail () {
             {singleEvent.event.date_created}
                     <br/>
             <em>rating: {singleEvent.event.averageRating}</em></p>
+            <br/>
             </Grid.Column>
             <Grid.Column width={3}>
-            <h2>testinge</h2>
+            <Button>
+            <Icon name='bookmark outline' />
+             Bookmark
+             </Button>
             </Grid.Column>
-        </Grid>
+        </Container>
     )
 }
 

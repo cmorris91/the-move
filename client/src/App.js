@@ -9,6 +9,7 @@ import Event from "./pages/event"
 import login from "./pages/login";
 import SeacrhCheckIn from "../src/components/SearchCheckIn"
 import EventDetail from "./pages/EventDetails"
+import Bookmark from "./pages/Bookmark";
 const session = require('express-session');
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/create" component={Create}/>
           <Route exact path="/event/:id" component={EventDetail}/>
           <Route exact path = "/Login" component = {login}/>
+          <Route exact path="/bookmark" component={Bookmark}/>
 
           </Switch>
         {/* </Wrapper> */}
