@@ -42,15 +42,21 @@ class Homepage extends Component {
                 <Col size="md-8">
                     <Card heading="Results">
                         <SearchResults results={this.state.results} />
+                        <Card>
+                            Event will go here
+                        </Card>
+                        <Card>
+                            Event will go here
+                        </Card>
                     </Card>
                 </Col>
         
             <Col size="md-4">
                 <Card heading="Search">
                     <PlaceSearch
-                        value={this.state.search}
-                        handleInputChange={this.handleInputChange}
-                        handleFormSubmit={this.handleFormSubmit}
+                        // value={this.state.search}
+                        // handleInputChange={this.handleInputChange}
+                        // handleFormSubmit={this.handleFormSubmit}
                     />
                 </Card>
             </Col>
