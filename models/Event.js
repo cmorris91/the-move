@@ -25,7 +25,7 @@ const eventSchema = new Schema({
       feedback: { type: Array },
 
       images: {
-          type: String
+          type: Array
       },
   
       rating: {

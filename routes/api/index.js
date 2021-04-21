@@ -9,4 +9,5 @@ router.use("/bookmark", bookmarkRoutes);
 router.use("/user", userRoutes);
 router.use("/event", eventRoutes);
 
+
 module.exports = router;
