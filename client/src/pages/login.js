@@ -1,4 +1,3 @@
-
 //Andres
 import React, { Component,useState } from "react";
 import {Input, FormBtn} from "../components/Forms"
@@ -6,7 +5,9 @@ import Event from "./event"
 import API from "../utils/API"
 function LogIn(props){
   const [formObject, setFormObject] = useState({
-  
+  name:"",
+  email:"",
+  password:""
   })
 
    
@@ -42,12 +43,12 @@ function handleInputChange(event) {
                 <form>
                 <Input
                 onChange={handleInputChange}
-                name="Email"
+                name="email"
                 placeholder="Email (required)"
               />
                 <Input
                 onChange={handleInputChange}
-                name="Password"
+                name="password"
                 placeholder="Password (required)"
               />
               <FormBtn
