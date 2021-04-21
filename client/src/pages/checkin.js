@@ -2,7 +2,7 @@
 //Chelsey
 import React, { useState, useEffect}  from "react";
 import Rating from "../components/Rating";
-// import Images from "../components/Images";
+import Images from "../components/Images";
 import {useParams} from "react-router-dom";
 import API from "../utils/API";
 
@@ -11,7 +11,8 @@ function Checkin() {
     const [checkinState, setCheckinState]= useState ({
         comments: [],
         images: "",
-        rating: 0
+        rating: 0,
+        // previewSource: "",
     })
 
     const {id} = useParams()
@@ -27,11 +28,17 @@ function Checkin() {
         setCheckinState({...checkinState, [name]: value})
       };
 
-      
+      // function previewFile (file) {
+      //   const reader = new FileReader();
+      //   reader.readAsDataURL(file)
+      //   reader.onloadend = () => {
+      //     setPreviewSource(reader.result)
+      //   }
+      // }
       
       function handleFormSubmit(event) {
         event.preventDefault();
-        //console.log(checkinState)
+        console.log(checkinState)
           API.saveCheckin (id, {
             feedback: checkinState.comments,
             // images: checkinState.images,
@@ -53,7 +60,15 @@ function Checkin() {
                 name="rating"
                 value={checkinState.rating}/>
 
-                {/* <Images onChange={handleInputChange}/> */}
+                <Images 
+                handleInputChange={handleInputChange}
+                name="images"
+                value={checkinState.images}/>
+                {/* {previewSource ? (
+                  <img src={previewSource} alt="chosen"/>
+                ) : (
+                  <p> ?</p>
+                )} */}
                 <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
             </div>
         )

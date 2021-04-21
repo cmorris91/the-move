@@ -2,7 +2,7 @@
 //Andres
 import React, { Component,useState } from "react";
 import {Input, FormBtn} from "../components/Forms"
-import Event from "../pages/event"
+import Event from "./event"
 import API from "../utils/API"
 function LogIn(props){
   const [formObject, setFormObject] = useState({
