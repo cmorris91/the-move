@@ -12,17 +12,15 @@ function Bookmark (){
         .catch(err => console.log(err));
     }, [])
 
-    //   const removeBookmark = () => {
-    //     setBookmarkState({
-    //       type: EventDetail,
-    //       _id: bookmarkState.currentPost._id
-    //     });
-    //   };
+    const getBookmarks = () => {
+        setBookmarkState({})
+    }
 
-    // return (
-    //     <h1>hi</h1>
-    // )
+    //addremove bookmark
 
+    return (
+        <h1>test</h1>
+    )
 
 
 }
