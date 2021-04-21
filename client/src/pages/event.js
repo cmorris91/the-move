@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 
+
 class Event extends Component {
   state = {
     search: "",
@@ -23,19 +24,22 @@ class Event extends Component {
      this.setState({ search: event.target.value });
    }
 
-   handleBtnClick = event => {
-     event.preventDefault();
-     API.saveEvent(this.state.bookmark)
-     .then(res => {
-      console.log(res)
-     this.setState({ bookmark: res.data })})
-     this.context.router.push({
-      pathname: '/event/:id',
-      state: {event: this.state.eventResults}  
-    })
-    .catch (err => console.log(err));
-   }
+  //  handleBtnClick = event => {
+  //    event.preventDefault();
+  //    API.saveEvent(this.state.bookmark)
+  //    .then(res => {
+  //     console.log(res)
+  //    this.setState({ bookmark: res.data })})
+  //    this.context.router.push({
+  //     pathname: '/event/:id',
+  //     state: {event: this.state.eventResults}  
+  //   })
+  //   .catch (err => console.log(err));
+  //  }
 
+
+   //check-in button need to reroute to /check-in page
+   //refer to checkin.js and searchcheckin(results.js)
   render() {
     return (
       <div>
@@ -46,13 +50,10 @@ class Event extends Component {
               <Link to={"/event/" + event._id}  specific={event} >
                 <strong>
                     {event.name}, {event.description}, {event.date}, {event.city}
-                    <button className="btn btn-danger"><a href="/check-in"></a>
+                </strong>
+                <button className="btn btn-danger"><a href="/check-in/:id"></a>
                     Check In!
                 </button>
-                <button className="btn" onClick={this.handleBtnClick}>
-                    Bookmark
-                </button>
-                </strong>
               </Link>
           </ListItem>
 

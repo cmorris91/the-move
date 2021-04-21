@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react'
+import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 
 function EventDetail () {
     const [singleEvent, setSingleEvent] = useState({
-        event: [],
+        event: []
     });
-
+    const [saveBookmark, setSaveBookmark] = useState([])
     const url = window.location.pathname;
     const id = url.substring(url.lastIndexOf('/') + 1);
 
@@ -21,6 +21,13 @@ function EventDetail () {
     }, []);
 
     console.log(singleEvent);
+
+    function handleBookmarkSave(data) {
+        data.preventDefault();
+        API.saveBookmark()
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
 
     
     return (
@@ -55,7 +62,7 @@ function EventDetail () {
             <br/>
             </Grid.Column>
             <Grid.Column width={3}>
-            <Button>
+            <Button onClick={handleBookmarkSave}>
             <Icon name='bookmark outline' />
              Bookmark
              </Button>
