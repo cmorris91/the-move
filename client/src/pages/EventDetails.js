@@ -7,7 +7,8 @@ import 'semantic-ui-css/semantic.min.css'
 
 function EventDetail () {
     const [singleEvent, setSingleEvent] = useState({
-        event: []
+        event: [],
+        isBookmark: []
     });
     const [saveBookmark, setSaveBookmark] = useState([])
     const url = window.location.pathname;
@@ -26,11 +27,36 @@ function EventDetail () {
 
     function handleBookmarkSave(data) {
         data.preventDefault();
+<<<<<<< HEAD
      
         API.saveBookmark( )
         .then(res => console.log(res))
         .catch(err => console.log(err));
+=======
+        const user =localStorage.getItem("user")
+        let info = id + "/" + user
+        const info2 = info.split("/")
+        console.log(info2)
+        if(singleEvent.isBookmark[0]){
+            API.updateBookmark(info2)
+        }
+        else if (!singleEvent.isBookmark[0]){
+            API.saveBookmark(info2)
+            
+        }
+>>>>>>> df6b2d93dc5b25c15d5df7a2db2ce1195b7a7b1a
     }
+
+    function componentDidMount(){
+        const user =localStorage.getItem("user")
+        let info = id + "/" + user
+        const info2 = info.split("/")
+        API.getBookmark(info2)
+          .then(res => {
+            console.log(res)
+           setSingleEvent({ isBookmark: res.data })})
+          .catch (err => console.log(err));
+      }
 
     
     return (
