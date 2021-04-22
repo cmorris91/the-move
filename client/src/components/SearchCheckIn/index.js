@@ -15,7 +15,6 @@ function SearchCheckIn () {
         setSearchEvent({...searchEvent, [name]: value})
       };
    
-      //setSearchEvent({...searchEvent, results: res.data}) 
     function handleFormSubmit(event) {
         event.preventDefault();
           API.searchCheckinEvent ({
@@ -24,8 +23,9 @@ function SearchCheckIn () {
           })
         .then(res => {
           console.log(res)
+          setSearchEvent({...searchEvent, results: res.data}) 
           })
-        .then(console.log(searchEvent.results.name))
+        .then(console.log(searchEvent))
         .catch(err => console.log(err));
       };
 
