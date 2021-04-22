@@ -5,7 +5,7 @@ import Container from "../components/Homepage/Container";
 import Row from "../components/Homepage/Row";
 import Col from "../components/Homepage/Col";
 import Card from "../components/Homepage/Card";
-import SearchResults from "../components/PlaceSearchResults";
+// import SearchResults from "../components/PlaceSearchResults";
 import PlacesAutocomplete from "react-places-autocomplete";
 import PlaceSearch from "../components/PlaceSearch";
 
@@ -37,31 +37,7 @@ class Homepage extends Component {
     render () {
     return (
         <div>
-        <Container>
-            <Row>
-                <Col size="md-8">
-                    <Card heading="Results">
-                        <SearchResults results={this.state.results} />
-                        <Card>
-                            Event will go here
-                        </Card>
-                        <Card>
-                            Event will go here
-                        </Card>
-                    </Card>
-                </Col>
-        
-            <Col size="md-4">
-                <Card heading="Search">
-                    <PlaceSearch
-                        // value={this.state.search}
-                        // handleInputChange={this.handleInputChange}
-                        // handleFormSubmit={this.handleFormSubmit}
-                    />
-                </Card>
-            </Col>
-        </Row>  
-        </Container>  
+            <PlaceSearch/>
         </div>
         )
     }
