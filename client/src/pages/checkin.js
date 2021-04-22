@@ -8,6 +8,7 @@ import API from "../utils/API";
 
 
 function Checkin() {
+  
     const [checkinState, setCheckinState]= useState ({
         comments: [],
         images: "",
