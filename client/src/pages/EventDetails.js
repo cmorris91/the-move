@@ -26,7 +26,8 @@ function EventDetail () {
 
     function handleBookmarkSave(data) {
         data.preventDefault();
-        API.saveBookmark()
+     
+        API.saveBookmark( )
         .then(res => console.log(res))
         .catch(err => console.log(err));
     }

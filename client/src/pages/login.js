@@ -41,7 +41,11 @@ function handleInputChange(event) {
         }
         
         };
-
+function localst(ev){
+ev.preventDefault();
+const local= localStorage.getItem("user").split("/")
+console.log(local)
+}
         return(
         <div>
             <div class="login-card">
@@ -92,6 +96,10 @@ function handleInputChange(event) {
                     onClick={handleFormSubmit}/>
                 </form>  
             </div>  
+            <FormBtn
+                    name="test"
+                    placeholder="test"
+                    onClick={localst}/>
         </div>
         )
     }
