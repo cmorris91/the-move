@@ -37,6 +37,17 @@ class Homepage extends Component {
     render () {
     return (
         <div>
+            <Row>
+                <div className="col-md-3">
+                <Link to={"/create"}>Create an Event</Link>
+                </div>
+
+                <div className="col-md-3">
+
+                <Link to={"/searchCheck-in"}>Check in to an Event</Link>
+              
+                </div>
+            </Row>
             <PlaceSearch/>
         </div>
         )
