@@ -27,21 +27,21 @@ const bcrypt = require ('bcrypt');
       }
     })
 
-    UserSchema.pre('save', function (next) {
-        const user = this;
+    // // UserSchema.pre('save', function (next) {
+    // //     const user = this;
       
-        if (!user.isModified('password')) {
-          return next();
-        }
-        bcrypt.genSalt(10, (err, salt) => {
-          if (err) return next(err);
-          bcrypt.hash(user.password, salt, (hashErr, hash) => {
-            if (hashErr) return next(hashErr);  
-            user.password = hash;
-            next();
-          });
-        });
-      });
+    // //     if (!user.isModified('password')) {
+    // //       return next();
+    // //     }
+    // //     bcrypt.genSalt(10, (err, salt) => {
+    // //       if (err) return next(err);
+    // //       bcrypt.hash(user.password, salt, (hashErr, hash) => {
+    // //         if (hashErr) return next(hashErr);  
+    // //         user.password = hash;
+    // //         next();
+    // //       });
+    // //     });
+    //   });
 
       UserSchema.methods.checkPassword = function(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);

@@ -1,8 +1,8 @@
 //Andres
 import React, { Component,useState } from "react";
 import {Input, FormBtn} from "../components/Forms"
-import Event from "./event"
 import API from "../utils/API"
+
 function LogIn(props){
   const [formObject, setFormObject] = useState({
   name:"",
@@ -10,7 +10,9 @@ function LogIn(props){
   password:""
   })
 
-   
+  function refreshPage() {
+    window.location.reload();
+  }
     
 
 function handleInputChange(event) {
@@ -23,15 +25,14 @@ function handleInputChange(event) {
         event.preventDefault();
         const{name} =event.target
         if(name==="login"){
-          console.log(formObject.password)
-            API.login({name:formObject.name, email:formObject.email, password:formObject.password})
-            
-            .then(res =>console.log(res))
+          API.login({name:formObject.name, email:formObject.email, password:formObject.password})
+            .then(res =>localStorage.setItem("user",res.data.dbModel[0].name +"/" + res.data.dbModel[0]._id))
             .catch(err => console.log(err));
         }else if(name==="signup"){
-          API.signup({name:formObject.name, email:formObject.email, password:formObject.password})
-          .then(res =>console.log(res))
-            .catch(err => console.log(err));
+        API.signup({name:formObject.name, email:formObject.email, password:formObject.password})
+        
+          .then(res => localStorage.setItem("user",res.data.dbModel[0].name +"/" + res.data.dbModel[0]._id))
+          .catch(err => alert("signup failed error" +err));
         }
         
         };
@@ -54,7 +55,7 @@ function handleInputChange(event) {
               <FormBtn
                 name="login"
                 placeholder="Login"
-                disabled={!(formObject.Password && formObject.Email)}
+                disabled={!(formObject.password && formObject.email)}
                 onClick={handleFormSubmit}
               ></FormBtn>
                 </form>
@@ -66,23 +67,23 @@ function handleInputChange(event) {
             <form>
                     <Input
                     onChange={handleInputChange}
-                    name="Email"
+                    name="email"
                     placeholder="Email (required)"/>
 
                     <Input
                     onChange={handleInputChange}
-                    name="Name"
+                    name="name"
                     placeholder="Username (required)"/>
 
                     <Input
                     onChange={handleInputChange}
-                    name="Password"
+                    name="password"
                     placeholder="Password (required)"/>
 
                     <FormBtn
                     name="signup"
                     placeholder="Signup"
-                    disabled={!(formObject.Password && formObject.Email && formObject.Name)}
+                    disabled={!(formObject.password && formObject.email && formObject.name)}
                     onClick={handleFormSubmit}/>
                 </form>  
             </div>  

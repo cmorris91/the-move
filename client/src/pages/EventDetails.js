@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
+import {Link} from "react-router-dom"
 import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
+
 
 function EventDetail () {
     const [singleEvent, setSingleEvent] = useState({
@@ -20,7 +22,7 @@ function EventDetail () {
             console.log(singleEvent)
     }, []);
 
-    console.log(singleEvent);
+    console.log("singleEvent", singleEvent);
 
     function handleBookmarkSave(data) {
         data.preventDefault();
@@ -66,6 +68,11 @@ function EventDetail () {
             <Icon name='bookmark outline' />
              Bookmark
              </Button>
+             <Link to={`/check-in/${singleEvent.event._id}`}>
+             <Button>
+                 Check-in
+                </Button>
+                </Link>
             </Grid.Column>
         </Container>
     )
