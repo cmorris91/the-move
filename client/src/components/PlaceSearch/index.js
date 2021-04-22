@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
 import PlacesAutoComplete from "react-places-autocomplete";
-import Card from "../Homepage/Card"
-import Col from "../Homepage/Col"
+import Card from "../Homepage/Card";
 import Container from "../Homepage/Container";
-import Row from "../Homepage/Row"
-import API from "../../utils/API"
+import Row from "../Homepage/Row";
+import API from "../../utils/API";
+import {Link} from "react-router-dom";
 
 
 export  default function PlaceSearch(props) {
@@ -82,12 +82,12 @@ export  default function PlaceSearch(props) {
                     <Card heading="Results">
                     {events ? (
                 events.filter(event => description.includes(event.city)).map(item => (
-                    <div>
+                    <Link to={"/event/" + item._id}  specific={item} >
                         <p>{item.name}</p>
                         <p>{item.description}</p>
                         <p>{item.city}</p>
                         <p>{item.date}</p>
-                    </div>
+                    </Link>
                     ))
                     ) : (
                         <h1> No events</h1>
