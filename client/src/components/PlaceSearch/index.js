@@ -9,12 +9,14 @@ export  default function PlaceSearch(props) {
     
 
     const handleSelect = async (description) => { 
+        // this.setState({ })
         
     };
 
     const handleFormSubmit = event => {
         event.preventDefault();
-        this.PlaceSearch(this.state.search);
+        console.log("handleFormSubmit", description);
+        // this.(this.state.search);
     };
     return (
         <div>
@@ -38,7 +40,7 @@ export  default function PlaceSearch(props) {
 
                                 };
 
-                                console.log(suggestion);
+                                // console.log(suggestion);
 
                                 return (
                                     <div {...getSuggestionItemProps(suggestion, { style })}>
@@ -53,7 +55,10 @@ export  default function PlaceSearch(props) {
                         </div>
                     </div>
                 )}
+                
             </PlacesAutoComplete>
+            
+            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search</button>
         </div>
     );
 }

@@ -38,17 +38,26 @@ module.exports = {
   },
 
   update: function(req, res) {
-  
     db.Event
       .findOneAndUpdate({ _id: req.params.id }, 
         {$push: {rating:req.body.rating, 
         feedback: req.body.feedback, 
         images: req.body.images}})
       .then(dbModel => {
-        const event = new db.Event(dbModel);
-        event.getRating();
-        console.log(event)
-        res.json(event)})
+        db.Event
+        .findById({ _id: req.params.id }).then(dbModel=>{
+          let sum = 0
+          for(var i = 0; i< dbModel.rating.length; i++) {
+            sum += dbModel.rating[i]
+          }
+          let avg = sum / dbModel.rating.length
+          console.log(avg)
+          db.Event
+            .findOneAndUpdate({ _id: req.params.id }, 
+            {$set: {averageRating:avg}}).then(dbModel2 => {
+              res.json(dbModel2)})
+            })
+        })
       .catch(err => {
         console.log(err)
         res.status(422).json(err)});

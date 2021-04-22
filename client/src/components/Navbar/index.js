@@ -15,12 +15,12 @@ function Navbar(props) {
          Login
         </a>
         <div className="locationField">
-        <form className="form-inline" >
+      
             
             <PlaceSearch/>
             
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={props.handleFormSubmit}>Search</button>
-        </form>
+            
+       
         </div>
     
       </nav>
