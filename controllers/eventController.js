@@ -1,5 +1,6 @@
 const db = require("../models");
 
+
 module.exports = {
   findAll: function(req, res) {
     db.Event
@@ -21,7 +22,8 @@ module.exports = {
 
   find: function(req, res) {
     db.Event
-    .find ({name: req.params.name, city: req.params.city})
+    .find ({name: {$regex: req.params.name, $options: "i"}, 
+    city: {$regex: req.params.city, $options: "i"}})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },

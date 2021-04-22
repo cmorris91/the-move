@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
+import PlaceSearch from "../components/PlaceSearch"
 
 
 

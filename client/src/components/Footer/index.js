@@ -22,7 +22,7 @@ function Footer () {
 
         <a className="text text-white">
             © 2020 Copyright: 
-            <a className="text text-blue" href="https://github.com/cmorris91/the-move"> The Move</a>
+            <h5 className="text text-blue" href="https://github.com/cmorris91/the-move"> The Move</h5>
         </a>
 
         
