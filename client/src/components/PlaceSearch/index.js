@@ -26,7 +26,6 @@ export  default function PlaceSearch(props) {
         .catch(err => console.log(err));
     }
 
-
     const handleFormSubmit = event => {
         event.preventDefault();
         getEvents()
@@ -43,33 +42,33 @@ export  default function PlaceSearch(props) {
                 handleFormSubmit={handleFormSubmit}
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                        <div>
-                        <input {...getInputProps({ placeholder: "Search A Location!" })} />
-                        
-
-                        <div className="autocomplete-dropdown-container">
-
-                            {loading ? <div>...loading</div> : null}
-                            {suggestions.map(suggestion => {
-                                const style = {
-                                    backgroundColor: suggestion.active ? "#D5AACD" : "#ECE1EA"
-
-                                };
-
-                                // console.log(suggestion);
-
-                                return (
-                                    <div {...getSuggestionItemProps(suggestion, { style })}>
-                                        {suggestion.description}
+                <div>
+                    <input {...getInputProps({ placeholder: "Search A Location!" })} />
                     
-                                
-                                
-                                    </div>
-                                  );
-                                
-                            })}
-                        </div>
+
+                    <div className="autocomplete-dropdown-container">
+
+                        {loading ? <div>...loading</div> : null}
+                        {suggestions.map(suggestion => {
+                            const style = {
+                                backgroundColor: suggestion.active ? "#D5AACD" : "#ECE1EA"
+
+                            };
+
+                            // console.log(suggestion);
+
+                            return (
+                                <div {...getSuggestionItemProps(suggestion, { style })}>
+                                    {suggestion.description}
+                
+                            
+                            
+                                </div>
+                                );
+                            
+                        })}
                     </div>
+                </div>
                 )}
                 
             </PlacesAutoComplete>

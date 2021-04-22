@@ -5,10 +5,10 @@ import Container from "../components/Homepage/Container";
 import Row from "../components/Homepage/Row";
 import Col from "../components/Homepage/Col";
 import Card from "../components/Homepage/Card";
-// import SearchResults from "../components/PlaceSearchResults";
+// import Button from "../components/"
 import PlacesAutocomplete from "react-places-autocomplete";
 import PlaceSearch from "../components/PlaceSearch";
-
+ 
 
 class Homepage extends Component {
     state = {
@@ -39,7 +39,8 @@ class Homepage extends Component {
         <div>
             <Row>
                 <div className="col-md-3">
-                <Link to={"/create"}>Create an Event</Link>
+                <Link to={"/create"}>
+                    Create an Event</Link>
                 </div>
 
                 <div className="col-md-3">
