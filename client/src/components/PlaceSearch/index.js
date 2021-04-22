@@ -1,24 +1,40 @@
 import React from "react";
 import "./style.css";
 import PlacesAutoComplete from "react-places-autocomplete";
+import Card from "../Homepage/Card"
+import Col from "../Homepage/Col"
+import Container from "../Homepage/Container";
+import Row from "../Homepage/Row"
+import API from "../../utils/API"
 
 
 export  default function PlaceSearch(props) {
     
     const [description, setAddress] = React.useState("");
-    
+    const [events, setEvents] = React.useState("");
 
     const handleSelect = async (description) => { 
         // this.setState({ })
         
     };
 
+    function getEvents() {
+        API.getEvents()
+        .then(res => {
+            console.log(res.data)
+            setEvents(res.data)})
+        .catch(err => console.log(err));
+    }
+
+
     const handleFormSubmit = event => {
         event.preventDefault();
+        getEvents()
         console.log("handleFormSubmit", description);
         // this.(this.state.search);
     };
     return (
+        <div>
         <div>
             <PlacesAutoComplete
                 value={description}
@@ -47,7 +63,7 @@ export  default function PlaceSearch(props) {
                                         {suggestion.description}
                     
                                 
-
+                                
                                     </div>
                                   );
                                 
@@ -59,6 +75,27 @@ export  default function PlaceSearch(props) {
             </PlacesAutoComplete>
             
             <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search</button>
+        </div>
+        <div>
+        <Container>
+            <Row>
+                    <Card heading="Results">
+                    {events ? (
+                events.filter(event => description.includes(event.city)).map(item => (
+                    <div>
+                        <p>{item.name}</p>
+                        <p>{item.description}</p>
+                        <p>{item.city}</p>
+                        <p>{item.date}</p>
+                    </div>
+                    ))
+                    ) : (
+                        <h1> No events</h1>
+                        )}
+            </Card>
+        </Row>  
+        </Container>  
+        </div>
         </div>
     );
 }
