@@ -25,7 +25,7 @@ const eventSchema = new Schema({
       feedback: { type: Array },
 
       images: {
-          type: String
+          type: Array
       },
   
       rating: {
@@ -33,7 +33,8 @@ const eventSchema = new Schema({
       },
 
       averageRating: {
-        type: Number
+        type: Number,
+        default: 0
       }, 
 
       user_id: {

@@ -2,7 +2,7 @@ import React from "react";
 import PlaceSearch from "../PlaceSearch";
 
 
-function Navbar() {
+function Navbar(props) {
     return (
       <nav className="navbar navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
@@ -15,12 +15,12 @@ function Navbar() {
          Login
         </a>
         <div className="locationField">
-        <form className="form-inline" >
+      
             
             <PlaceSearch/>
             
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="search()">Search</button>
-        </form>
+            
+       
         </div>
     
       </nav>

@@ -1,37 +1,35 @@
 import React from "react";
 import "./style.css";
-import PlacesAutoComplete, { geocodeByAddress } from "react-places-autocomplete";
+import PlacesAutoComplete from "react-places-autocomplete";
 
 
-export  default function PlaceSearch() {
+export  default function PlaceSearch(props) {
     
-    const [address, setAddress] = React.useState("");
+    const [description, setAddress] = React.useState("");
     
 
-    const handleSelect = async (address) => { 
-      
-    };
-
-    const handleInput = () => {
+    const handleSelect = async (description) => { 
+        // this.setState({ })
         
     };
 
-    function search() {
-        const x = document.getElementById("btn");
-        document.getElementById("btn").innerHTML="Searching for: " + x.value;
-    }
-
-
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("handleFormSubmit", description);
+        // this.(this.state.search);
+    };
     return (
         <div>
             <PlacesAutoComplete
-                value={address}
+                value={description}
                 onChange={setAddress}
                 onSelect={handleSelect}
+                handleFormSubmit={handleFormSubmit}
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                    <div>
+                        <div>
                         <input {...getInputProps({ placeholder: "Search A Location!" })} />
+                        
 
                         <div className="autocomplete-dropdown-container">
 
@@ -42,7 +40,7 @@ export  default function PlaceSearch() {
 
                                 };
 
-                                console.log(suggestion);
+                                // console.log(suggestion);
 
                                 return (
                                     <div {...getSuggestionItemProps(suggestion, { style })}>
@@ -57,7 +55,10 @@ export  default function PlaceSearch() {
                         </div>
                     </div>
                 )}
+                
             </PlacesAutoComplete>
+            
+            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search</button>
         </div>
     );
 }
