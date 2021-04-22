@@ -11,6 +11,9 @@ function Navbar(props) {
         <a className="navbar-brand" href="/Event">
          Events
         </a>
+        <a className="navbar-brand" href="/Bookmark">
+         Bookmark
+        </a>
         <a className="navbar-brand" href="/Login">
          Login
         </a>

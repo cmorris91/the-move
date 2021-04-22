@@ -37,9 +37,6 @@ class Event extends Component {
   //   .catch (err => console.log(err));
   //  }
 
-
-   //check-in button need to reroute to /check-in page
-   //refer to checkin.js and searchcheckin(results.js)
   render() {
     return (
       <div>
