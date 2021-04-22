@@ -20,9 +20,6 @@ function Navbar(props) {
         <div className="locationField">
       
             
-            <PlaceSearch/>
-            
-            
        
         </div>
     

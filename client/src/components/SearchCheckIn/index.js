@@ -15,14 +15,16 @@ function SearchCheckIn () {
         setSearchEvent({...searchEvent, [name]: value})
       };
    
-      
     function handleFormSubmit(event) {
         event.preventDefault();
           API.searchCheckinEvent ({
             name: searchEvent.name,
             city: searchEvent.city,
           })
-        .then(res => setSearchEvent({...searchEvent, results: res.data}))
+        .then(res => {
+          console.log(res)
+          setSearchEvent({...searchEvent, results: res.data}) 
+          })
         .then(console.log(searchEvent))
         .catch(err => console.log(err));
       };
