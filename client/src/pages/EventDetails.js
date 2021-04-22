@@ -70,6 +70,7 @@ function EventDetail () {
              </Button>
              <Link to={`/check-in/${singleEvent.event._id}`}>
              <Button>
+             <Icon name='map marker alternate' />
                  Check-in
                 </Button>
                 </Link>
