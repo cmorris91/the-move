@@ -1,11 +1,10 @@
 const db = require("../models");
 
 module.exports = {
-  findAll: function(req, res) {
+  findById: function(req, res) {
     db.Bookmark
-      .find(req.query)
+      .find({user:req.body.name})
       .populate("Event", "User")
-      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -16,8 +15,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    const info = req.body
     db.Bookmark
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .update({user:info.name},{$push:{events: info.events}}) 
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

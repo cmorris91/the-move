@@ -8,10 +8,10 @@ const bookmarkSchema = new Schema ({
         ref: "Event", 
     }],
     
-    user: {
+    user: [{
         type: Schema.Types.ObjectId,
         ref: "User", 
-    }
+    }]
 })
 
 

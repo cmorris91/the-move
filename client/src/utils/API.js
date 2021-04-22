@@ -1,5 +1,6 @@
 import axios from "axios";
 
+const mongoose = require("mongoose")
 
 export default {
     saveEvent: function(eventData) {
@@ -23,11 +24,12 @@ export default {
     },
 
     saveBookmark: function(data) {
-      return axios.post("/api/bookmark/", data)
+      const data1 = data.map((value) => mongoose.Types.ObjectId(value))
+      return axios.post("/api/bookmark/", { events: data1[0], name: data1[1] })
     },
 
-    getBookmark: function() {
-      return axios.get("/api/bookmark/")
+    getBookmark: function(data) {
+      return axios.post("/api/bookmark/", data)
     },
 
     login: function(login){
