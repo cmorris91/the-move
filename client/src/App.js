@@ -19,7 +19,6 @@ import { Form } from "semantic-ui-react";
 function App() {
 
   
-  
 
   return (
     <Router>
@@ -33,7 +32,7 @@ function App() {
            
           </Route>
           <Route exact path="/home">
-            {localStorage.getItem('user') ? <Redirect push to="/" /> : <Homepage/>}
+            {!localStorage.getItem('user') ? <Redirect push to="/" /> : <Homepage/>}
            
           </Route> 
           <Route exact path="/check-in/:id" component={Checkin}/>
