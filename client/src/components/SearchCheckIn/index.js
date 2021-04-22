@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import ResultEvents from "./results";
 import API from "../../utils/API"
+import "./style.css"
 
 function SearchCheckIn () {
     const [searchEvent, setSearchEvent]= useState ({

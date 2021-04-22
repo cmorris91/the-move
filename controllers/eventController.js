@@ -13,7 +13,9 @@ module.exports = {
     db.Event
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(err)
+        res.status(422).json(err)});
   },
 
   find: function(req, res) {
@@ -33,10 +35,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   update: function(req, res) {
     console.log(req.body)
     db.Event
-      .findOneAndUpdate({ _id: req.params.id }, {$push: {rating:req.body.rating, feedback: req.body.feedback}})
+      .findOneAndUpdate({ _id: req.params.id }, 
+        {$push: {rating:req.body.rating, 
+        feedback: req.body.feedback, 
+        images: req.body.images}})
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.log(err)
