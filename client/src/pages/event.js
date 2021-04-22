@@ -51,9 +51,6 @@ class Event extends Component {
                 <strong>
                     {event.name}, {event.description}, {event.date}, {event.city}
                 </strong>
-                <button className="btn btn-danger"><a href="/check-in/:id"></a>
-                    Check In!
-                </button>
               </Link>
           </ListItem>
 

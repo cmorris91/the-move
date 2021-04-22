@@ -8,21 +8,28 @@ function Bookmark (){
 
     useEffect(()=> {
         API.getBookmark()
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res.data);
+            setBookmarkState({bookmark:res.data});
+        })
         .catch(err => console.log(err));
     }, [])
 
-    //   const removeBookmark = () => {
-    //     setBookmarkState({
-    //       type: EventDetail,
-    //       _id: bookmarkState.currentPost._id
-    //     });
-    //   };
+    const getBookmarks = () => {
+        setBookmarkState({})
+    }
 
-    // return (
-    //     <h1>hi</h1>
-    // )
 
+    //this component needs to request the bookmark list from line 10
+    //addremove bookmark
+
+    return (
+        <div>
+            {bookmarkState.bookmark.map(function(value) {
+                return (<p>{value.events}</p>)
+            })}
+        </div>
+    )
 
 
 }
