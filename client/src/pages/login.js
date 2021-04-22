@@ -10,9 +10,10 @@ function LogIn(props){
   password:""
   })
 
-  function refreshPage() {
-    window.location.reload();
+  function refresh(){
+    window.location.reload()
   }
+
     
 
 function handleInputChange(event) {
@@ -27,12 +28,16 @@ function handleInputChange(event) {
         if(name==="login"){
           API.login({name:formObject.name, email:formObject.email, password:formObject.password})
             .then(res =>localStorage.setItem("user",res.data.dbModel[0].name +"/" + res.data.dbModel[0]._id))
+            .then(alert("login successful"))
+            .then(refresh)
             .catch(err => console.log(err));
         }else if(name==="signup"){
         API.signup({name:formObject.name, email:formObject.email, password:formObject.password})
         
-          .then(res => localStorage.setItem("user",res.data.dbModel[0].name +"/" + res.data.dbModel[0]._id))
-          .catch(err => alert("signup failed error" +err));
+          .then(res => localStorage.setItem("user",res.data.dbModel.name +"/" + res.data.dbModel._id))
+          .then(alert("signup successful"))
+          .then(refresh)
+          .catch(err => alert("signup failed error"));
         }
         
         };

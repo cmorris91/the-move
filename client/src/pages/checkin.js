@@ -8,6 +8,7 @@ import ImageUpload from "../components/Images";
 
 
 function Checkin() {
+  
     const [checkinState, setCheckinState]= useState ({
         comments: [],
         images: [],
