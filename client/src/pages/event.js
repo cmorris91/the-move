@@ -22,13 +22,14 @@ class Event extends Component {
        .then(res => {
          console.log(res)
         this.setState({ eventResults: res.data })})
+        
        .catch (err => console.log(err));
    }
 
    handleInputChange = event => {
      this.setState({ search: event.target.value });
    }
-
+  
   //  handleBtnClick = event => {
   //    event.preventDefault();
   //    API.saveEvent(this.state.bookmark)

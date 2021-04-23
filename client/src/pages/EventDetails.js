@@ -3,14 +3,15 @@ import API from "../utils/API";
 import {Link} from "react-router-dom"
 import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
-
+import Images2 from"../components/Images2"
+import Afeedback from"../components/Afeedback"
 
 function EventDetail () {
         //first state is for the event, the second is for bookmark
     const [singleEvent, setSingleEvent] = useState({
         event: []
     });
-        const [saveBookmark, setSaveBookmark] = useState({
+const [saveBookmark, setSaveBookmark] = useState({
                 //set the isBookmark to false to protect the server from trying to send null to the array
                 isBookmark:false
         })
@@ -31,26 +32,21 @@ function refresh(){
     useEffect(() => {
         API.getEvent (id)
           .then(res => {
-         
-          setSingleEvent({ ...singleEvent, event: res.data })})
+          setSingleEvent( res.data )})
           .catch(err => console.log(err))
           .then( 
         
         API.getBookmark({name:uid})
           .then(res => {
-          console.log("hello",res.data)
           //the api will return true or false
           setSaveBookmark({ isBookmark: res.data })})
           .catch (err => console.log(err)));
     }, []);
 
-    console.log("singleEvent", singleEvent);
-    console.log("bookmark",saveBookmark)
 //if no bookmark already it will save a brand new bookmark
     function handleBookmarkSave(data) {
         data.preventDefault();
         if(saveBookmark.isBookmark === true){
-                console.log("hello")
             API.updateBookmark(info2)
         }
 
@@ -64,8 +60,7 @@ function refresh(){
     }
 
 
-
-
+console.log(saveBookmark.images)
     //renders the event data
     return (
 
@@ -73,42 +68,47 @@ function refresh(){
              <br/>
              <br/>
              <br/>
-            <h1>{singleEvent.event.name}</h1>
+            <h1>{singleEvent.name}</h1>
                    <br/>
             <Grid.Column width={4}>
             <br/>
-            <Image src={singleEvent.event.images} size='medium' centered />
+            
             </Grid.Column>
             <Grid.Column width={9}>
             <br/>
-            <p>{singleEvent.event.host_name}
+            <p>{singleEvent.host_name}
                     <br/>
-            {singleEvent.event.category}
+            {singleEvent.category}
                     <br/>
-            {singleEvent.event.description}
+            {singleEvent.description}
                     <br/>
-            {singleEvent.event.date}
+            {singleEvent.date}
                     <br/>
-            {singleEvent.event.address}
+            {singleEvent.address}
                     <br/>
-            {singleEvent.event.city}, {singleEvent.event.state} {singleEvent.event.zipcode}
+            {singleEvent.city}, {singleEvent.state} {singleEvent.zipcode}
                     <br/>
-            {singleEvent.event.date_created}
+            {singleEvent.date_created}
                     <br/>
-            <em>rating: {singleEvent.event.averageRating}</em></p>
+            <em>rating: {singleEvent.averageRating}</em></p>
             <br/>
+            <div>
+            <Afeedback allfeedback={singleEvent.feedback} />
+             
+            </div>
             </Grid.Column>
             <Grid.Column width={3}>
             <Button onClick={handleBookmarkSave}>
             <Icon name='bookmark outline' />
              Bookmark
              </Button>
-             <Link to={`/check-in/${singleEvent.event._id}`}>
+             <Link to={`/check-in/${singleEvent._id}`}>
              <Button>
              <Icon name='map marker alternate' />
                  Check-in
                 </Button>
                 </Link>
+                <Images2 images={singleEvent.images} />
             </Grid.Column>
         </Container>
     )

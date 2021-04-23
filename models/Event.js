@@ -22,11 +22,13 @@ const eventSchema = new Schema({
 
       date_created: {  type: Date, default: Date.now},
 
-      feedback: { type: Array },
+      feedback: {
+        type: [String],
+      },
 
       images: {
-          type: Array
-      },
+          type:[String],
+        },
   
       rating: {
           type: [Number]
