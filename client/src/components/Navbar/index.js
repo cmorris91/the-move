@@ -1,10 +1,11 @@
 import React from "react";
 import PlaceSearch from "../PlaceSearch";
+import "./style.css"
 
 
 function Navbar(props) {
     return (
-      <nav className="navbar navbar-dark bg-dark">
+      <nav className="navbar navbar-dark">
         <a className="navbar-brand" href="/">
          Home
         </a>

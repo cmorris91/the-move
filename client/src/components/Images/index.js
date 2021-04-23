@@ -17,7 +17,7 @@ class ImageUpload extends React.Component {
     widget.open()
   }
   render() {
-    return (<div>
+    return (<div className='photo-input'>
             <p>Add Photos of your experience!</p>
            <button onClick={this.showWidget}> Add Photos Here </button>
            </div>

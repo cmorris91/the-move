@@ -1,6 +1,7 @@
 
 import React, {useState} from "react";
 import API from "../utils/API"
+import "./style.css"
 
 function Create () {
     const [eventState, setEventState] = useState({
@@ -41,19 +42,21 @@ function Create () {
       };
     return (
     <div className="create">
-        <h1 className="page-title" id="event-title">Create Event</h1>
+        <div>
+        <h1 className="page-title" id="event-title">Create Your Event</h1>
+            <p style={{textAlign: "center"}}>*Please fill out all fields</p>
+        </div>
         <section className="event-form">
-            <p>*Please fill out all fields</p>
-            <form className="row g-3">
-                <div className="col-md-12  inputs">
-                    <label for="eventDate">Event Date</label>
+            <form className="row g-3" id='create-form'>
+                <div className="col-md-12  inputs" id='eventDate'>
+                    <label for="eventDate" style={{marginRight: "10px", padding: "10px"}}>Event Date</label>
                     <input type="date" 
                     id="eventDate" 
                     name="date" 
                     className="drop-down" 
                     onChange={handleInputChange}/>
                 </div>
-                <div className="col-md-12 inputs">
+                <div className="col-md-10 inputs">
                     <input type="text" 
                     className="form-control" 
                     id="inputEventName" 
@@ -61,7 +64,7 @@ function Create () {
                     name="name" 
                     onChange={handleInputChange}/>
                 </div>
-                <div className= "col-md-12 inputs">
+                <div className= "col-md-10 inputs">
                     <input type="text" 
                     className="form-control" 
                     id="inputHostName" 
@@ -69,7 +72,7 @@ function Create () {
                     name="host_name" 
                     onChange={handleInputChange}/>
                 </div>
-                <div className= "col-md-12 inputs">
+                <div className= "col-md-10 inputs">
                     <select id="inputEventType" 
                     className="form-select drop-down" 
                     style={{width: "100%"}} 
@@ -83,7 +86,7 @@ function Create () {
                         <option value="Recreaction">Recreation</option>
                     </select>
                 </div>
-                <div className="form-floating col-md-12 inputs">
+                <div className="form-floating col-md-10 inputs">
                     <textarea className="form-control" 
                     placeholder="Tell Us About Your Event!" 
                     id="eventDescription" 
@@ -91,7 +94,7 @@ function Create () {
                     name="description" 
                     onChange={handleInputChange}></textarea>
                 </div>
-                <div className= "col-md-12 inputs">
+                <div className= "col-md-10 inputs">
                     <input type="text" 
                     className="form-control" 
                     id="inputStreetAddress" 
@@ -99,13 +102,13 @@ function Create () {
                     name="address" 
                     onChange={handleInputChange}/>
                 </div>
-                <div className= "col-md-12 inputs">
+                <div className= "col-md-10 inputs">
                     <input type="text" 
                     className="form-control" id="inputCity" 
                     placeholder="City" name="city" 
                     onChange={handleInputChange}/>
                 </div>
-                <div className= "col-md-12 inputs">
+                <div className= "col-md-10 inputs">
                     <select id="inputState" 
                     className="form-select drop-down" 
                     placeholder="State" 
@@ -165,7 +168,7 @@ function Create () {
                         <option value="Wyoming">Wyoming</option>
                     </select>
                 </div>
-                <div className="col-md-12 inputs">
+                <div className="col-md-10 inputs">
                     <input type="text" 
                     className="form-control" 
                     id="inputZip" 
@@ -180,7 +183,7 @@ function Create () {
                     rows="3" 
                     placeholder="ex c@c.com, j@j.com" ></textarea>
                 </div> */}
-                <div class="col-12">
+                <div class="col-10" id='create-submit-btn'>
                     <button type="submit" 
                     class="btn btn-primary" 
                     onClick={handleFormSubmit}>Submit</button>

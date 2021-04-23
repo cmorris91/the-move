@@ -50,10 +50,8 @@ function EventDetail () {
            setSingleEvent({ isBookmark: res.data })})
           .catch (err => console.log(err));
       }
-
     
     return (
-
         <Container textAlign="center">
              <br/>
              <br/>

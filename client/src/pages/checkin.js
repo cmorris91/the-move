@@ -8,7 +8,6 @@ import ImageUpload from "../components/Images";
 
 
 function Checkin() {
-  
     const [checkinState, setCheckinState]= useState ({
         comments: [],
         images: [],
@@ -47,22 +46,23 @@ function Checkin() {
     }
 
         return(
-            <div>
-                <input
-                onChange={handleInputChange}
-                name="comments"/>
+          <div>
+              <input
+              className='form-input'
+              onChange={handleInputChange}
+              name="comments"/>
 
-                <Rating 
-                handleInputChange={handleInputChange}
-                name="rating"
-                value={checkinState.rating}/>
+              <Rating 
+              handleInputChange={handleInputChange}
+              name="rating"
+              value={checkinState.rating}/>
 
-                <ImageUpload 
-                updateImageState={updateImageState}
-                />
-                
-                <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
-            </div>
+              <ImageUpload 
+              updateImageState={updateImageState}
+              />
+              
+              <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
+          </div>
         )
     
 }
