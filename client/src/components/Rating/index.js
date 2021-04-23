@@ -5,6 +5,7 @@ function Rating (props) {
         <div>
             <label for="rating">Rate the Event</label>
             <input type="number" 
+            className='form-input'
             onChange = {props.handleInputChange}
             id="rating"  
             value={props.value}
