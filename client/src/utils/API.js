@@ -51,6 +51,10 @@ export default {
     },
     getLocationList: function(description) {
       return axios.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyAASHUvtgIzAHEr6NyyZA9J4X0zo0GKYc4&libraries=places")
+    },
+
+    deleteEvent: function(id) {
+      return axios.delete("/api/event/" + id)
     }
 
 }

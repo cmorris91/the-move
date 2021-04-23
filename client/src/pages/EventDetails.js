@@ -3,6 +3,7 @@ import API from "../utils/API";
 import {Link} from "react-router-dom"
 import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
+import DeleteButton from "../../src/components/Delete"
 
 
 function EventDetail () {
@@ -75,6 +76,15 @@ function refresh(){
           .catch (err => console.log(err));
       }
 
+      function handleDelete() {
+        API.deleteEvent(id)
+        .then(res => {
+        console.log(res)
+        alert("this event has been deleted")
+        })
+        .catch(err => console.log(err))
+      }
+
     //renders the event data
     return (
         <Container textAlign="center">
@@ -95,13 +105,13 @@ function refresh(){
                     <br/>
             {singleEvent.event.description}
                     <br/>
-            {singleEvent.event.date}
+            {new Date(singleEvent.event.date).toDateString()}
                     <br/>
             {singleEvent.event.address}
                     <br/>
             {singleEvent.event.city}, {singleEvent.event.state} {singleEvent.event.zipcode}
                     <br/>
-            {singleEvent.event.date_created}
+            {new Date(singleEvent.event.date_created).toDateString()}
                     <br/>
             <em>rating: {singleEvent.event.averageRating}</em></p>
             <br/>
@@ -118,7 +128,16 @@ function refresh(){
                 </Button>
                 </Link>
             </Grid.Column>
+            {singleEvent.event.user_id === uid ? (
+                <DeleteButton 
+                onClick={handleDelete}
+                />    
+                ) : (
+                        <p></p>
+                )
+        }
         </Container>
+       
     )
 }
 
