@@ -79,8 +79,8 @@ function refresh(){
       function handleDelete() {
         API.deleteEvent(id)
         .then(res => {
-        console.log(res)
         alert("this event has been deleted")
+        window.location.replace("/event")
         })
         .catch(err => console.log(err))
       }

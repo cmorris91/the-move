@@ -42,6 +42,7 @@ function Create () {
           })
             .then(res => {
                 alert("Your Event Has Been Created")
+                window.location.replace("/event")
                 console.log(res)})
             .catch(err => console.log(err));
         

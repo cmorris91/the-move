@@ -1,3 +1,5 @@
+
+
 .create {
     display: flex;
     justify-content: center;
@@ -57,4 +59,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+}
+
+.form-input {
+    width: 65%;
+    padding: 12px;
+}
+
+.comment-input {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.photo-input {
+    margin: 10px;
+}
+
+.button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #697268;
 }
