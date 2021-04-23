@@ -7,9 +7,6 @@ router.route("/")
     
 router.route("/:id")
     .get(users.findById)
-    
-router.route("/logout/:id")
-    .get(users.logout)
 
 router.route("/login")
     .post(users.login)
