@@ -1,0 +1,85 @@
+
+
+.create {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* margin: 0 auto; */
+    padding: 10px;
+    font-family: 'Spartan', sans-serif;
+}
+
+.page-title {
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    color: #443742;
+    font-size: 45px;
+
+}
+
+#eventDate {
+    display: flex;
+    justify-content: center;
+}
+
+.drop-down {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    height: 40px;
+}
+
+.inputs {
+    margin: 10px;
+}
+
+#create-form {
+    display: flex;
+    justify-content: center;
+    margin: 0 ;
+}
+
+.form-control {
+    height: 40px;
+}
+
+.btn {
+    background-color: #697268;
+    border: none;
+    font-size: 25px;
+}
+
+#create-submit-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.check-in-container {
+    margin: 5%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-input {
+    width: 65%;
+    padding: 12px;
+}
+
+.comment-input {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.photo-input {
+    margin: 10px;
+}
+
+.button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #697268;
+}

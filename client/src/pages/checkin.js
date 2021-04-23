@@ -5,10 +5,10 @@ import Rating from "../components/Rating";
 import {useParams} from "react-router-dom";
 import API from "../utils/API";
 import ImageUpload from "../components/Images";
+import "./style.css"
 
 
 function Checkin() {
-  
     const [checkinState, setCheckinState]= useState ({
         comments: [],
         images: [],
@@ -37,8 +37,10 @@ function Checkin() {
             images: checkinState.images,
             rating: checkinState.rating
           })
-        .then(res => console.log(res))
-        .then(console.log(checkinState))
+        .then( res => {
+          alert("Thanks for checking in!")
+          window.location.replace("/event/" + id)
+        })
         .catch(err => console.log(err));
       };
 
@@ -47,22 +49,32 @@ function Checkin() {
     }
 
         return(
-            <div>
-                <input
-                onChange={handleInputChange}
-                name="comments"/>
-
-                <Rating 
-                handleInputChange={handleInputChange}
-                name="rating"
-                value={checkinState.rating}/>
-
-                <ImageUpload 
-                updateImageState={updateImageState}
-                />
-                
-                <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
+          <div className="check-in-container">
+            <h2>
+              What do you think of this event?
+            </h2>
+            <div className="comment-input">
+              <input
+              className='form-input'
+              onChange={handleInputChange}
+              name="comments"
+              placeholder='enter comments here'/>
             </div>
+
+            <div className="comment-input">
+              <Rating
+              handleInputChange={handleInputChange}
+              name="rating"
+              value={checkinState.rating}/>
+            </div>
+
+            <div className="comment-input">
+              <ImageUpload 
+              updateImageState={updateImageState}
+              />
+            </div>
+              <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
+          </div>
         )
     
 }

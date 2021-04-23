@@ -30,9 +30,13 @@ function SearchCheckIn () {
       };
 
     return (
-        <div>
-            <form>
-                <input 
+        <div className='checkin-container'>
+          <div className="checkin-search-title">
+          <h1 className="page-title">Which Event would you like to check in to?</h1>
+          </div>
+            <form className='searchCheckinForm'>
+                <input
+                className="form-input" 
                 name="name"
                 onChange={handleInputChange}
                 placeholder="Enter Event Name"/>
@@ -54,7 +58,7 @@ function SearchCheckIn () {
             id= {event._id}
             event_name= {event.name}
             event_host = {event.host_name}
-            event_date = {event.date}
+            event_date = {new Date(event.date).toDateString()}
             />
             ))}
             </section> 

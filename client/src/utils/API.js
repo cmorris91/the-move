@@ -37,6 +37,11 @@ export default {
     getBookmarksForUser: function(data) {
       return axios.post("/api/Bookmark/all/user", data)
     },
+
+    removeBookmark: function(id, uid) {
+      return axios.delete("/api/Bookmark/" + id + "/" + uid)
+    },
+
     login: function(login){
       return axios.post("/api/user/login", login)
     },
@@ -46,6 +51,10 @@ export default {
     },
     getLocationList: function(description) {
       return axios.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyAASHUvtgIzAHEr6NyyZA9J4X0zo0GKYc4&libraries=places")
+    },
+
+    deleteEvent: function(id) {
+      return axios.delete("/api/event/" + id)
     }
 
 }

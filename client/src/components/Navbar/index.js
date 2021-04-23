@@ -1,8 +1,10 @@
 import React from "react";
 import PlaceSearch from "../PlaceSearch";
+import "./style.css"
 
 
 function Navbar(props) {
+
 
 function refresh(){
   window.location.reload()
@@ -15,7 +17,13 @@ function logout(){
 
 
 return (
+<<<<<<< HEAD
   <nav className="navbar navbar-dark bg-dark">
+=======
+
+
+  <nav className="navbar navbar-dark">
+>>>>>>> ce08e49b268629b8e1389990b1ef676331ff0eac
     <a className="navbar-brand" href="/">
       Home
     </a>
@@ -36,6 +44,7 @@ return (
     }
     <div className="locationField">
     </div>
+
     
   </nav>
     );

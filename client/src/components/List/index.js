@@ -1,5 +1,12 @@
 import React from "react";
 
+
+
+export function Container({ fluid, children }) {
+    return <div className={`container${fluid ? "-fluid" : ""}`}>{children}</div>
+}
+
+
 export function List({ children }) {
     return (
         <div>
@@ -8,8 +15,8 @@ export function List({ children }) {
     );
 }
 
-export function ListItem ({ children }) {
-
+export function ListItem({ children }) {
     return  <li className="list-group-item">{children}</li>;
 
 }
+

@@ -12,4 +12,6 @@ router.route("/all")
 .get(bookmarkController.findAll)
 router.route("/all/user")
 .post(bookmarkController.findAllById)
+router.route("/:id/:uid")
+    .delete(bookmarkController.remove);
 module.exports = router;
