@@ -7,49 +7,63 @@ import 'semantic-ui-css/semantic.min.css'
 
 function EventDetail () {
     const [singleEvent, setSingleEvent] = useState({
-        event: [],
-        isBookmark: []
+        event: []
     });
-    const [saveBookmark, setSaveBookmark] = useState([])
-    const url = window.location.pathname;
-    const id = url.substring(url.lastIndexOf('/') + 1);
+        const [saveBookmark, setSaveBookmark] = useState({
+                isBookmark:false
+        })
+        const url = window.location.pathname;
+        const id = url.substring(url.lastIndexOf('/') + 1);
+        const user =localStorage.getItem("user")
+        const user2 = user.split("/")
+        const uid=user2[1]
+        let info = id + "/" + uid
+        const info2 = info.split("/")
+        
+function refresh(){
+        window.location.reload()
+}
+
 
     useEffect(() => {
         API.getEvent (id)
-            .then(res => {
-            console.log(res)
-            setSingleEvent({ ...singleEvent, event: res.data })})
-            .catch(err => console.log(err));
-            console.log(singleEvent)
+          .then(res => {
+         
+          setSingleEvent({ ...singleEvent, event: res.data })})
+          .catch(err => console.log(err))
+          .then( 
+        
+        API.getBookmark({name:uid})
+          .then(res => {
+          console.log("hello",res.data)
+          setSaveBookmark({ isBookmark: res.data })})
+          .catch (err => console.log(err)));
     }, []);
 
     console.log("singleEvent", singleEvent);
+    console.log("bookmark",saveBookmark)
 
     function handleBookmarkSave(data) {
         data.preventDefault();
-        const user =localStorage.getItem("user")
-        let info = id + "/" + user
-        const info2 = info.split("/")
-        console.log(info2)
-        if(singleEvent.isBookmark[0]){
+       
+        if(saveBookmark.isBookmark === true){
+        console.log("saveBookmark", saveBookmark);
+                console.log("hello")
             API.updateBookmark(info2)
         }
-        else if (!singleEvent.isBookmark[0]){
-            API.saveBookmark(info2)
-            
+        else if (saveBookmark.isBookmark === false){
+            console.log("hi")
+            console.log("saveBookmark", saveBookmark);
+                API.saveBookmark(info2)
+                .then(res => {
+                console.log(res)})
+                .then(refresh())
+                .catch (err => console.log(err));
         }
     }
 
-    function componentDidMount(){
-        const user =localStorage.getItem("user")
-        let info = id + "/" + user
-        const info2 = info.split("/")
-        API.getBookmark(info2)
-          .then(res => {
-            console.log(res)
-           setSingleEvent({ isBookmark: res.data })})
-          .catch (err => console.log(err));
-      }
+
+
 
     
     return (

@@ -6,6 +6,10 @@ import API from "../utils/API";
 import PlaceSearch from "../components/PlaceSearch"
 
 
+
+
+
+
 class Event extends Component {
   state = {
     search: "",

@@ -25,13 +25,18 @@ export default {
 
     saveBookmark: function(data) {
       const data1 = data.map((value) => mongoose.Types.ObjectId(value))
-      return axios.post("/api/bookmark/", { events: data1[0], name: data1[1] })
+      return axios.post("/api/Bookmark/", { events: data1[0], name: data1[1] })
     },
-
+    updateBookmark: function(data){
+      return axios.put("/api/Bookmark/", {events:data[0], name:data[1]})
+    },
     getBookmark: function(data) {
-      return axios.post("/api/bookmark/", data)
+     
+      return axios.post("/api/Bookmark/user", data)
     },
-
+    getBookmarksForUser: function(data) {
+      return axios.post("/api/Bookmark/all/user", data)
+    },
     login: function(login){
       return axios.post("/api/user/login", login)
     },
