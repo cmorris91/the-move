@@ -54,10 +54,11 @@ return (
             {bookmarkState.events.map(event => (
             <ListItem key={event._id}>
               <Link to={"/event/" + event._id}  specific={event} >
-                <strong>
-                    {event.name}, {event.description}, {new Date(event.date).toDateString()}, {event.city}
-        
-                </strong>
+                <p>{event.name}</p> 
+                <p>{event.description}</p> 
+                <p>{new Date(event.date).toDateString()}</p> 
+                <p>{event.city}</p>
+                
               </Link>
               <button onClick={() => handleRemove(event._id)}>Delete</button>
             </ListItem>
