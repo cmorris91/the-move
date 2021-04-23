@@ -17,13 +17,9 @@ function logout(){
 
 
 return (
-<<<<<<< HEAD
-  <nav className="navbar navbar-dark bg-dark">
-=======
 
 
   <nav className="navbar navbar-dark">
->>>>>>> ce08e49b268629b8e1389990b1ef676331ff0eac
     <a className="navbar-brand" href="/">
       Home
     </a>
