@@ -97,7 +97,7 @@ export  default function PlaceSearch(props) {
                         <p>{item.name}</p>
                         <p>{item.description}</p>
                         <p>{item.city}</p>
-                        <p>{item.date}</p>
+                        <p>{new Date(item.date).toDateString()}</p>
                     </Link>
                     ))
                     ) : (

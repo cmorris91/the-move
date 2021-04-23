@@ -58,7 +58,7 @@ function SearchCheckIn () {
             id= {event._id}
             event_name= {event.name}
             event_host = {event.host_name}
-            event_date = {event.date}
+            event_date = {new Date(event.date).toDateString()}
             />
             ))}
             </section> 

@@ -14,6 +14,7 @@ module.exports = {
   findById: function(req, res) {
     db.Event
       .findById(req.params.id)
+      .populate("User")
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.log(err)

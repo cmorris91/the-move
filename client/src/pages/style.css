@@ -50,3 +50,11 @@
     display: flex;
     justify-content: center;
 }
+
+.check-in-container {
+    margin: 5%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

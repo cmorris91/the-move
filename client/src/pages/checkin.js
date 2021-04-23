@@ -5,6 +5,7 @@ import Rating from "../components/Rating";
 import {useParams} from "react-router-dom";
 import API from "../utils/API";
 import ImageUpload from "../components/Images";
+import "./style.css"
 
 
 function Checkin() {
@@ -46,11 +47,16 @@ function Checkin() {
     }
 
         return(
-          <div>
+          <div className="check-in-container">
+            <h2>
+              What do you think of this event?
+            </h2>
               <input
               className='form-input'
               onChange={handleInputChange}
-              name="comments"/>
+              name="comments"
+              placeholder='enter comments here'/>
+        
 
               <Rating 
               handleInputChange={handleInputChange}
