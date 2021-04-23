@@ -4,27 +4,20 @@ import "./style.css";
 function Footer () {
   return (
     <footer className="footer bg-dark">
+        <div className="text">
         <h5 className="title text-white">Links</h5>
-            <ul>
-                <li className="list">
-                    <a href="/">Home</a>
-                </li>
-                <li className="list">
-                    <a href="/Event">Events</a>
-                </li>
-                <li className="list">
-                    <a href="/Login">Log-In</a>
-                </li>
-                <li className="list">
-                    <a href="/Login">Sign-Up</a>
-                </li>
-            </ul>        
+            <a href="/">Home </a>
+            <a href="/Event">Events </a>
+            <a href="/Login">Log-In </a>
+            <a href="/Login">Sign-Up </a>
+                
+                  
 
-        <a className="text text-white">
+        <h5 className="text text-white">
             © 2020 Copyright: 
-            <h5 className="text text-blue" href="https://github.com/cmorris91/the-move"> The Move</h5>
-        </a>
-
+            <h5 className="link" href="https://github.com/cmorris91/the-move"> The Move</h5>
+        </h5>
+        </div>
         
     </footer>
   );

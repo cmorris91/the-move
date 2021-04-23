@@ -4,6 +4,7 @@ import PlacesAutoComplete from "react-places-autocomplete";
 import Card from "../Homepage/Card";
 import Container from "../Homepage/Container";
 import Row from "../Homepage/Row";
+import Col from "../Homepage/Col"
 import API from "../../utils/API";
 import {Link} from "react-router-dom";
 
@@ -34,6 +35,10 @@ export  default function PlaceSearch(props) {
     };
     return (
         <div>
+            <Container>
+            <Row>
+                <Col size="12">
+            <Card>
         <div>
             <PlacesAutoComplete
                 value={description}
@@ -47,6 +52,7 @@ export  default function PlaceSearch(props) {
                     
 
                     <div className="autocomplete-dropdown-container">
+                        
 
                         {loading ? <div>...loading</div> : null}
                         {suggestions.map(suggestion => {
@@ -75,10 +81,16 @@ export  default function PlaceSearch(props) {
             
             <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search</button>
         </div>
+        </Card>
+        </Col>
+        </Row>  
+        </Container>  
+        
         <div>
         <Container>
             <Row>
-                    <Card heading="Results">
+                <Col size="12">
+                    <Card heading="Events List">
                     {events ? (
                 events.filter(event => description.includes(event.city)).map(item => (
                     <Link to={"/event/" + item._id}  specific={item} >
@@ -91,7 +103,8 @@ export  default function PlaceSearch(props) {
                     ) : (
                         <h1> No events</h1>
                         )}
-            </Card>
+                    </Card>
+            </Col>
         </Row>  
         </Container>  
         </div>
