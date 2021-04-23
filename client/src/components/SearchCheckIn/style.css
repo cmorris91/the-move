@@ -1,7 +1,13 @@
-.button {
-    background-color: rgb(99, 99, 93);
+.checkin-container {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.create {
-    display: flex;
+.searchCheckinForm {
+    margin: 30px;
+    padding: 20px;
 }
+
+
