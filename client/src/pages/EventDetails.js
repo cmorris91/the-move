@@ -3,9 +3,14 @@ import API from "../utils/API";
 import {Link} from "react-router-dom"
 import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
+<<<<<<< HEAD
 import Images2 from"../components/Images2"
 import Afeedback from"../components/Afeedback"
+=======
+>>>>>>> e173a25f3299c2f0b84d79fc8b09703c0e0d18c8
 import DeleteButton from "../../src/components/Delete"
+import Afeedback from "../components/Afeedback"
+import Images2 from "../components/Images2";
 
 
 function EventDetail () {
@@ -62,6 +67,7 @@ function refresh(){
     }
 
 
+<<<<<<< HEAD
     function componentDidMount(){
         const user =localStorage.getItem("user")
         let info = id + "/" + user
@@ -73,6 +79,8 @@ function refresh(){
           .catch (err => console.log(err));
       }
 
+=======
+>>>>>>> e173a25f3299c2f0b84d79fc8b09703c0e0d18c8
       function handleDelete() {
         API.deleteEvent(id)
         .then(res => {
@@ -102,13 +110,21 @@ function refresh(){
                     <br/>
             {singleEvent.description}
                     <br/>
+<<<<<<< HEAD
             {new Date(singleEvent.event.date).toDateString()}
+=======
+            {new Date(singleEvent.date).toDateString()}
+>>>>>>> e173a25f3299c2f0b84d79fc8b09703c0e0d18c8
                     <br/>
             {singleEvent.address}
                     <br/>
             {singleEvent.city}, {singleEvent.state} {singleEvent.zipcode}
                     <br/>
+<<<<<<< HEAD
             {new Date(singleEvent.event.date_created).toDateString()}
+=======
+            {new Date(singleEvent.date_created).toDateString()}
+>>>>>>> e173a25f3299c2f0b84d79fc8b09703c0e0d18c8
                     <br/>
             <em>rating: {singleEvent.averageRating}</em></p>
             <br/>
@@ -130,7 +146,7 @@ function refresh(){
                 </Link>
                 <Images2 images={singleEvent.images} />
             </Grid.Column>
-            {singleEvent.event.user_id === uid ? (
+            {singleEvent.user_id === uid ? (
                 <DeleteButton 
                 onClick={handleDelete}
                 />    

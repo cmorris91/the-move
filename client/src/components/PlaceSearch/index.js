@@ -94,10 +94,13 @@ export  default function PlaceSearch(props) {
                     {events ? (
                 events.filter(event => description.includes(event.city)).map(item => (
                     <Link to={"/event/" + item._id}  specific={item} >
-                        <p>{item.name}</p>
-                        <p>{item.description}</p>
-                        <p>{item.city}</p>
-                        <p>{new Date(item.date).toDateString()}</p>
+                        <div className="eventCard">
+                        <p>Event Name: {item.name}</p>
+                        <p>Event Description: {item.description}</p>
+                        <p>Event City: {item.city}</p>
+                        <p>Event Date: {new Date(item.date).toDateString()}</p>
+                        <hr/>
+                        </div>
                     </Link>
                     ))
                     ) : (
