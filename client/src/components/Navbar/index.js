@@ -3,29 +3,45 @@ import PlaceSearch from "../PlaceSearch";
 
 
 function Navbar(props) {
-    return (
-      <nav className="navbar navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">
-         Home
-        </a>
-        <a className="navbar-brand" href="/Event">
-         Events
-        </a>
-        <a className="navbar-brand" href="/Bookmark">
-         Bookmark
-        </a>
-        <a className="navbar-brand" href="/Login">
-         Login
-        </a>
-        <div className="locationField">
-      
-            
-       
-        </div>
+
+function refresh(){
+  window.location.reload()
+}
+//logout is now possible
+function logout(){
+  localStorage.clear()
+  .then(refresh)
+}
+
+
+return (
+
+
+  <nav className="navbar navbar-dark bg-dark">
+    <a className="navbar-brand" href="/">
+      Home
+    </a>
+    <a className="navbar-brand" href="/Event">
+      Events
+    </a>
+    <a className="navbar-brand" href="/Bookmark">
+      Bookmark
+    </a>
+    {!localStorage.getItem('user') ? 
+      <a className="navbar-brand" href="/">
+        Login/Signup
+      </a>
+      : 
+      <a className="navbar-brand" href="/" onClick={logout}>
+        Logout
+      </a>
+    }
+    <div className="locationField">
+    </div>
     
-      </nav>
+  </nav>
     );
-  }
+}
 
 
   
