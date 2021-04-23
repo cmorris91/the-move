@@ -318,6 +318,57 @@ const eventSeed =[
       rating:[3],
       user_id:"6078a8504485de51284b29ea"
     },
+    {
+      name:"Let's Talk Dating (Ladies Only)",
+      host_name:"Hillary",
+      category:"Social",
+      description:"Ladies Only, sorry men, but us girls need to discuss a game plan on how to get into these streets.",
+      date: new Date(Date.now()+5),
+      address:"3595 Loquat Ave",
+      city:"Miami",
+      state:"FL",
+      zipcode:"33133",
+      date_created:new Date(Date.now()),
+      feedback: ["So down!"],
+      averageRating: 0,
+      images:['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuiiSItoGTlyGCSFuQhiPjTtCPdf4feCg_kg&usqp=CAU'],
+      rating:[4],
+      user_id:"6078a8504485de51284b29ea"
+    },
+    {
+      name:" Monthly Karaoke Meetup",
+      host_name:"Oscar",
+      category:"Entertainment",
+      description:"Come prepared to sing...no excuses.",
+      date: new Date(Date.now()+5),
+      address:"1111 SW First Ave",
+      city:"Miami",
+      state:"FL",
+      zipcode:"33130",
+      date_created:new Date(Date.now()),
+      feedback: ["Hilarious Time"],
+      averageRating: 0,
+      images:['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXVFjS4bXWWSMYjO01o7OooIE5H8nnL2F_dg&usqp=CAU'],
+      rating:[2],
+      user_id:"6078a8504485de51284b29ea"
+    },
+    {
+      name:"Drag Queen Brunch",
+      host_name:"Cher",
+      category:"Dining",
+      description:"Come in and celebrate with the Queens!",
+      date: new Date(Date.now()+5),
+      address:"2727 NW 2nd Ave",
+      city:"Miami",
+      state:"FL",
+      zipcode:"33127",
+      date_created:new Date(Date.now()),
+      feedback: ["Best Bruch Ever"],
+      averageRating: 0,
+      images:['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkqSQh-nsl0dnaHbGcjixds5PIdOR8Du33ng&usqp=CAU'],
+      rating:[5],
+      user_id:"6078a8504485de51284b29ea"
+    },
   ]
 
 

@@ -84,6 +84,8 @@ function Create () {
                         <option value="Music">Music</option>
                         <option value="Dinig">Dining</option>
                         <option value="Recreaction">Recreation</option>
+                        <option value="Social">Social</option>
+                        <option value="Business">Business</option>
                     </select>
                 </div>
                 <div className="form-floating col-md-10 inputs">
