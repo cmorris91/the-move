@@ -3,13 +3,10 @@ import API from "../utils/API";
 import {Link} from "react-router-dom"
 import { Grid, Image, Icon, Button, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
-<<<<<<< HEAD
 import Images2 from"../components/Images2"
 import Afeedback from"../components/Afeedback"
-=======
 import DeleteButton from "../../src/components/Delete"
 
->>>>>>> ce08e49b268629b8e1389990b1ef676331ff0eac
 
 function EventDetail () {
         //first state is for the event, the second is for bookmark
@@ -65,9 +62,6 @@ function refresh(){
     }
 
 
-<<<<<<< HEAD
-console.log(saveBookmark.images)
-=======
     function componentDidMount(){
         const user =localStorage.getItem("user")
         let info = id + "/" + user
@@ -88,7 +82,6 @@ console.log(saveBookmark.images)
         .catch(err => console.log(err))
       }
 
->>>>>>> ce08e49b268629b8e1389990b1ef676331ff0eac
     //renders the event data
     return (
         <Container textAlign="center">
@@ -109,21 +102,13 @@ console.log(saveBookmark.images)
                     <br/>
             {singleEvent.description}
                     <br/>
-<<<<<<< HEAD
-            {singleEvent.date}
-=======
             {new Date(singleEvent.event.date).toDateString()}
->>>>>>> ce08e49b268629b8e1389990b1ef676331ff0eac
                     <br/>
             {singleEvent.address}
                     <br/>
             {singleEvent.city}, {singleEvent.state} {singleEvent.zipcode}
                     <br/>
-<<<<<<< HEAD
-            {singleEvent.date_created}
-=======
             {new Date(singleEvent.event.date_created).toDateString()}
->>>>>>> ce08e49b268629b8e1389990b1ef676331ff0eac
                     <br/>
             <em>rating: {singleEvent.averageRating}</em></p>
             <br/>
