@@ -27,21 +27,14 @@ function App() {
        
         {/* <Wrapper> */}
         <Switch>
-          <Route exact path="/">
-            {localStorage.getItem('user') ? <Redirect push to="/home" /> : <Login/>}
-           
-          </Route>
-          <Route exact path="/home">
-            {!localStorage.getItem('user') ? <Redirect push to="/" /> : <Homepage/>}
-           
-          </Route> 
-          <Route exact path="/check-in/:id" component={Checkin}/>
-          <Route exact path="/searchCheck-in" component={SeacrhCheckIn}/>
-          <Route exact path="/event" component={Event}/>
-          <Route exact path="/create" component={Create}/>
-          <Route exact path="/event/:id" component={EventDetail}/>
-          <Route exact path = "/Login" component = {Login}/>
-          <Route exact path="/bookmark" component={Bookmark}/>
+          <Route exact path="/">{localStorage.getItem('user') ? <Redirect push to="/home" /> : <Login/>}</Route>
+          <Route exact path="/home">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Homepage/>}</Route> 
+          <Route exact path="/check-in/:id">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Checkin/>}</Route>
+          <Route exact path="/searchCheck-in"> {!localStorage.getItem('user') ? <Redirect push to="/" /> : <SeacrhCheckIn/>}</Route>
+          <Route exact path="/event">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Event/>}</Route>
+          <Route exact path="/create">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Create/>}</Route>
+          <Route exact path="/event/:id">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <EventDetail/>}</Route>
+          <Route exact path="/bookmark">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Bookmark/>}</Route>
 
           </Switch>
 

@@ -4,40 +4,31 @@ import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 
 function Bookmark (){
-    let i = 0
+    //the state wukk keep track of events
     const [bookmarkState, setBookmarkState] = useState ({
-        user:[],
-        events:[],
-        currentevent:[],
-        allevents:[]
+        events:[]
     })
+    //gets data from local storage, then splits them into a array, user2[0]=name user2[1]=User ID
     const user =localStorage.getItem("user")
     const user2 = user.split("/")
     const uid=user2[1]
 
 
 
-
+//on load it will find the bookmark for you, then set the events into a array state
     useEffect(()=> {
         API.getBookmarksForUser({name:uid})
         .then(res => {
-            console.log(res.data[0]);
-            setBookmarkState({events:res.data[0].events});
+        console.log(res.data[0]);
+        setBookmarkState({events:res.data[0].events});
         })
         .catch(err => console.log(err))
         .then(console.log(bookmarkState.events))
-       
     }, [])
-
-    const getBookmarks = () => {
-        setBookmarkState({})
-    }
-console.log(bookmarkState.events[0])
-
-    //this component needs to request the bookmark list from line 10
+    
     //addremove bookmark
-
-    return (
+    //will map out all the events inside of your bookmark
+return (
         <div>
             {bookmarkState.events.map(event => (
           <ListItem key={event._id}>

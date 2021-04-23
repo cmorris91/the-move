@@ -22,6 +22,7 @@ module.exports = {
         res.json({dbModel, session: req.session})})
       .catch(err => res.status(422).json(err));
   },
+  //lets you sign up
   signup: function(req, res) {
     const users = new db.User(req.body);
     db.User
@@ -36,7 +37,7 @@ module.exports = {
     })
       .catch(err => res.status(422).json(err));
   },
-
+//grabs data and references model before it lets you in
  login: function(req, res) {
     db.User
  
@@ -55,15 +56,6 @@ module.exports = {
         })
       .catch(err => res.status(422).json(err));
   },
-  logout: function(req, res) {
-    if (req.session.logged_in) {
-      localStorage.clear(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-      
-  }
+
 };
 

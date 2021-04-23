@@ -6,12 +6,15 @@ import 'semantic-ui-css/semantic.min.css'
 
 
 function EventDetail () {
+        //first state is for the event, the second is for bookmark
     const [singleEvent, setSingleEvent] = useState({
         event: []
     });
         const [saveBookmark, setSaveBookmark] = useState({
+                //set the isBookmark to false to protect the server from trying to send null to the array
                 isBookmark:false
         })
+        //gathers all the data it needs for event id and user id
         const url = window.location.pathname;
         const id = url.substring(url.lastIndexOf('/') + 1);
         const user =localStorage.getItem("user")
@@ -23,7 +26,7 @@ function EventDetail () {
 function refresh(){
         window.location.reload()
 }
-
+//on load it will load the event, then ask if you have a Bookmark
 
     useEffect(() => {
         API.getEvent (id)
@@ -36,24 +39,22 @@ function refresh(){
         API.getBookmark({name:uid})
           .then(res => {
           console.log("hello",res.data)
+          //the api will return true or false
           setSaveBookmark({ isBookmark: res.data })})
           .catch (err => console.log(err)));
     }, []);
 
     console.log("singleEvent", singleEvent);
     console.log("bookmark",saveBookmark)
-
+//if no bookmark already it will save a brand new bookmark
     function handleBookmarkSave(data) {
         data.preventDefault();
-       
         if(saveBookmark.isBookmark === true){
-        console.log("saveBookmark", saveBookmark);
                 console.log("hello")
             API.updateBookmark(info2)
         }
+
         else if (saveBookmark.isBookmark === false){
-            console.log("hi")
-            console.log("saveBookmark", saveBookmark);
                 API.saveBookmark(info2)
                 .then(res => {
                 console.log(res)})
@@ -74,7 +75,7 @@ function refresh(){
           .catch (err => console.log(err));
       }
 
-    
+    //renders the event data
     return (
         <Container textAlign="center">
              <br/>
