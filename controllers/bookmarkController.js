@@ -12,7 +12,7 @@ module.exports = {
   findAllById: function(req,res){
     db.Bookmark
     .find({user:req.body.name})
-    .populate("Event", "User")
+    .populate("events")
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
