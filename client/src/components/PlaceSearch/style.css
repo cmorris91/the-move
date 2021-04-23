@@ -1,3 +1,6 @@
 .autocomplete-dropdown-container {
-    position:absolute
+    position:inherit;
+    z-index: 999;
+    /* display:inline-block; */  
+   
 }
