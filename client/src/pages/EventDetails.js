@@ -64,11 +64,19 @@ function refresh(){
     }
 
 
-
+    function componentDidMount(){
+        const user =localStorage.getItem("user")
+        let info = id + "/" + user
+        const info2 = info.split("/")
+        API.getBookmark(info2)
+          .then(res => {
+            console.log(res)
+           setSingleEvent({ isBookmark: res.data })})
+          .catch (err => console.log(err));
+      }
 
     //renders the event data
     return (
-
         <Container textAlign="center">
              <br/>
              <br/>
