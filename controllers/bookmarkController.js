@@ -48,8 +48,7 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Bookmark
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .update({user:req.params.uid},{$pull:{events: req.params.id}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

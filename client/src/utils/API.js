@@ -37,6 +37,11 @@ export default {
     getBookmarksForUser: function(data) {
       return axios.post("/api/Bookmark/all/user", data)
     },
+
+    removeBookmark: function(id, uid) {
+      return axios.delete("/api/Bookmark/" + id + "/" + uid)
+    },
+
     login: function(login){
       return axios.post("/api/user/login", login)
     },

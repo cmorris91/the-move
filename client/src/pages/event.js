@@ -1,14 +1,9 @@
 //GINA
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { List, ListItem } from "../components/List";
+import { Container, List, ListItem } from "../components/List";
 import API from "../utils/API";
 import PlaceSearch from "../components/PlaceSearch"
-
-
-
-
-
 
 class Event extends Component {
   state = {
@@ -46,18 +41,20 @@ class Event extends Component {
     return (
       <div>
         <h1 className="text-center">List of Events</h1>
+        <Container>
         <List>
         {this.state.eventResults.map(event => (
           <ListItem key={event._id}>
               <Link to={"/event/" + event._id}  specific={event} >
                 <strong>
-                    {event.name}, {event.description}, {event.date}, {event.city}
+                    {event.name}, {event.description}, {new Date(event.date).toDateString()}, {event.city}
                 </strong>
               </Link>
           </ListItem>
 
         ))}
         </List>
+        </Container>
       </div>
     )
   }
