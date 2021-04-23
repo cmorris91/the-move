@@ -13,8 +13,13 @@ function Create () {
         address: "",
         city: "",
         state: "",
-        zipcode: ""
+        zipcode: "",
+        user: 0
     }); 
+    
+    const user =localStorage.getItem("user")
+    const user2 = user.split("/")
+    const uid=user2[1];
     
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -32,7 +37,8 @@ function Create () {
             address: eventState.address,
             city: eventState.city,
             state: eventState.state,
-            zipcode: eventState.zipcode
+            zipcode: eventState.zipcode,
+            user_id: uid
           })
             .then(res => {
                 alert("Your Event Has Been Created")
@@ -192,14 +198,10 @@ function Create () {
                 </div>
             </form>
         </section>
-        {/* <div class="login-alert">
-            <p>Please <a href='/login'> LogIn to Create an event</a></p>
-        </div> */}
     </div>
-
     )
 }
 
 export default Create;
-//CHELSEY
+
 

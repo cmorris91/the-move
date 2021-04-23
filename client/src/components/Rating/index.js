@@ -1,9 +1,11 @@
 import React from "react";
+import "./style.css"
 
 function Rating (props) {
     return (
-        <div>
-            <label for="rating">Rate the Event</label>
+        <div className="rating-container">
+            <h2>Rate this Event </h2>
+            <label for="rating">Rating</label>
             <input type="number" 
             className='form-input'
             onChange = {props.handleInputChange}
