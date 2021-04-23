@@ -54,6 +54,6 @@ eventSchema.methods.getRating = function() {
 };
 
 
-  const Event = mongoose.model("Event", eventSchema);
+  const Event = mongoose.model("Event", eventSchema,"events");
 
   module.exports = Event;
