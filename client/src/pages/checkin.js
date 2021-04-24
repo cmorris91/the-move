@@ -73,7 +73,9 @@ function Checkin() {
               updateImageState={updateImageState}
               />
             </div>
+            <div>
               <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
+            </div>
           </div>
         )
     
