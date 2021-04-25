@@ -18,8 +18,8 @@ class ImageUpload extends React.Component {
   }
   render() {
     return (<div className='photo-input'>
-            <h2>Add Photos of your experience!</h2>
-           <button className="button" onClick={this.showWidget}> Add Photos Here </button>
+            <h1 className="input-title">Add Photos of your experience!</h1>
+           <button className="button" onClick={this.showWidget}>Upload Photos</button>
            </div>
     );
   }

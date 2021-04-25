@@ -13,6 +13,7 @@ function SearchCheckIn () {
     function handleInputChange(event) {
         const { name, value } = event.target;
         setSearchEvent({...searchEvent, [name]: value})
+      
       };
    
     function handleFormSubmit(event) {
@@ -40,7 +41,9 @@ function SearchCheckIn () {
                 className="form-input" 
                 name="name"
                 onChange={handleInputChange}
-                placeholder="Enter Event Name"/>
+                placeholder="Enter Event Name"
+                />
+                
                 </div>
 
                 <div className="inputs">
@@ -54,7 +57,7 @@ function SearchCheckIn () {
                 <div className="submit-button-container">
                 <button className="button" 
                 onClick={handleFormSubmit}
-                type="submit">Search</button>
+                type="submit" >Search <i class="fas fa-search"></i></button>
                 </div>
             </form>
 

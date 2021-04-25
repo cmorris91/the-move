@@ -4,7 +4,7 @@ import React from "react";
 function Rating (props) {
     return (
         <div className="rating-container">
-            <h2>Rate this Event </h2>
+            <h1 className="input-title">Rate the Event </h1>
             <input type="number" 
             className='form-input'
             onChange = {props.handleInputChange}
