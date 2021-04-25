@@ -1,6 +1,7 @@
-//Andres
-import React, { Component,useState } from "react";
+
+import React, { useState } from "react";
 import {Input, FormBtn} from "../components/Forms"
+import { Container } from "../components/List";
 import API from "../utils/API"
 
 function LogIn(props){
@@ -47,6 +48,7 @@ function handleFormSubmit(event) {
 //renders login page
 return(
     <div>
+      <Container>
         <div class="login-card">
 
           <h2 class="page-title">Login</h2>
@@ -103,7 +105,7 @@ return(
             </form>
 
         </div>
-    
+        </Container>
     </div>
 )
 }
