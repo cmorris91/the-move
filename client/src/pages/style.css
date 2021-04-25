@@ -124,3 +124,7 @@
     background-color: lightgray;
 
 }
+
+.checkinLink {
+    float: right;
+}
