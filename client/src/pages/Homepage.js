@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import Container from "../components/Homepage/Container";
-import Row from "../components/Homepage/Row";
-import Col from "../components/Homepage/Col";
-import Card from "../components/Homepage/Card";
-// import SearchResults from "../components/PlaceSearchResults";
-import PlacesAutocomplete from "react-places-autocomplete";
 import PlaceSearch from "../components/PlaceSearch";
+import { Header} from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
+import "./style.css"
 
 
 class Homepage extends Component {
@@ -37,20 +35,20 @@ class Homepage extends Component {
     render () {
     return (
         <div>
-            <Row>
-                <div className="col-md-3">
-                <Link to={"/create"}>Create an Event</Link>
-                </div>
+            <Container>
 
-                <div className="col-md-3">
+                <Header>
+                
+                   <Link floated="left" to={"/create"}>Create an Event</Link>
+                   <Link className="checkinLink" to={"/searchCheck-in"}>Check in to an Event</Link>
 
-                <Link to={"/searchCheck-in"}>Check in to an Event</Link>
-              
-                </div>
-            </Row>
+                </Header>
+
+            </Container>
             <PlaceSearch/>
+            
         </div>
-        )
+    )
     }
 }
 

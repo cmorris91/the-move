@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { Container, List, ListItem } from "../components/List";
+import { Link } from "react-router-dom";
+import { ListItem } from "../components/List";
 import API from "../utils/API";
+<<<<<<< HEAD
 import { Table } from 'semantic-ui-react';
+=======
+import { Container, Button, List } from 'semantic-ui-react';
+>>>>>>> 6e1ed4bc9109913746281bb6e940a643eacc1632
 import 'semantic-ui-css/semantic.min.css'
 
 function Bookmark (){
-    const history = useHistory
     //the state wukk keep track of events
     const [bookmarkState, setBookmarkState] = useState ({
         events:[]
@@ -37,7 +40,7 @@ function Bookmark (){
     
 
 
-    //addremove bookmark, bookmark delete many 
+    //addremove bookmark
     function handleRemove(id) {
         API.removeBookmark(id, uid)
         .then(() => refresh())
@@ -47,33 +50,34 @@ function Bookmark (){
         return null
     }
 
-    function handleRouter(eventid) {
-        history.push(`/event/${eventid}`)
-      }
-
-
 return (
         <div>
             <h1 className="text-center">Bookmark</h1>
+            <br/>
           <Container>
-          <List list={listBookmark.list} onRemove={handleRemove}>
+          <List divided verticalAlign="middle">
+
+          <List.Content centered list={listBookmark.list} onRemove={handleRemove}>
+              
             {bookmarkState.events.map(event => (
             <ListItem key={event._id}>
-              <Link to={"/event/" + event._id}  specific={event} >
-                <p>{event.name}</p> 
-                <p>{event.description}</p> 
-                <p>{new Date(event.date).toDateString()}</p> 
-                <p>{event.city}</p>
+
+              <Button floated="right" onClick={() => handleRemove(event._id)}>Delete</Button>
+                
+                <Link to={"/event/" + event._id}  specific={event} >
+                <p>{new Date(event.date).toDateString()}, {event.city}</p> 
+                <p>{event.name}</p>
                 
               </Link>
-              <button onClick={() => handleRemove(event._id)}>Delete</button>
+              
             </ListItem>
             ))}
-          </List>
+
+          </List.Content>
+        </List>
         </Container>
         </div>
     )
-
 
 }
 
