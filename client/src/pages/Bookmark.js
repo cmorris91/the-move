@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Container, List, ListItem } from "../components/List";
 import API from "../utils/API";
-import { Container, Table } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 
 function Bookmark (){

@@ -6,21 +6,19 @@ function Afeedback(props){
   let idklol=props.allfeedback
 
 return(
-  <div>
+  <div className="feedback-box">
   <h1 className="text-center">What People Are Saying</h1>
-  <List>
+  <div>
   {props.allfeedback ? props.allfeedback.map(event => (
-    <ListItem key={event}>
-        
+    <p className="feedback-list" key={event}> 
           <strong>
-              {event}
+              "{event}"
           </strong>
-        
-    </ListItem>
+      </p>
 
   )):<div></div>
 }
-  </List>
+  </div>
 </div>
 )
 }
