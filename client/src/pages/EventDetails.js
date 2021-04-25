@@ -73,35 +73,36 @@ function refresh(){
 
     //renders the event data
     return (
-        <Container textAlign="center">
-             <br/>
-             <br/>
-             <br/>
-            <h1>{singleEvent.name}</h1>
-                   <br/>
-            <Grid.Column width={4}>
-            <br/>
-            
-            </Grid.Column>
+            <Container textAlign="center">
             <Grid.Column width={9}>
-            <br/>
-            <p>{singleEvent.host_name}
-                    <br/>
-            {singleEvent.category}
-                    <br/>
-            {singleEvent.description}
-                    <br/>
-            {new Date(singleEvent.date).toDateString()}
-                    <br/>
-            {singleEvent.address}
-                    <br/>
-            {singleEvent.city}, {singleEvent.state} {singleEvent.zipcode}
-                    <br/>
-            {new Date(singleEvent.date_created).toDateString()}
-                    <br/>
-            <em>rating: {singleEvent.averageRating}</em></p>
-            <br/>
-            <div>
+        <div className="eventDetail-box">
+            <h1>{singleEvent.name}</h1>
+            <div className="row"> 
+                <p className="event-detail col">{singleEvent.description}</p> 
+            </div>
+            <div className="row"> 
+                <p className="label col">Hosted By:</p>
+                <p className="event-detail col">{singleEvent.host_name}</p>
+            </div>
+            <div className="row"> 
+                <p className="label col">When:</p>
+                <p className="event-detail col">{new Date(singleEvent.date).toDateString()}</p>
+            </div>
+            <div className="row"> 
+                <p className="label col">Where:</p>
+                <p className="event-detail col">{singleEvent.address} <br/>{singleEvent.city} {singleEvent.state}, {singleEvent.zipcode}</p> 
+                  
+            </div>
+            <div className="row"> 
+                <p className="label col">Type of Event:</p> 
+                <p className="event-detail col">{singleEvent.category}</p> 
+            </div>
+            <div className="row">  
+                <p className="label col">Rating</p>
+                <p className="event-detail col"> {singleEvent.averageRating}</p>
+            </div>
+            </div>
+        <div>
             <Afeedback allfeedback={singleEvent.feedback} />
              
             </div>
@@ -121,6 +122,7 @@ function refresh(){
             </Grid.Column>
             {singleEvent.user_id === uid ? (
                 <DeleteButton 
+                className="button"
                 onClick={handleDelete}
                 />    
                 ) : (

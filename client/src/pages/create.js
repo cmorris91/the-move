@@ -185,16 +185,10 @@ function Create () {
                     name="zipcode" 
                     onChange={handleInputChange}/>
                 </div>
-                {/* <div className="mb-12 col-md-12 inputs">
-                    <label for="exampleFormControlTextarea1" className="form-label">Who would you like to invite?</label>
-                    <textarea className="form-control" 
-                    id="inputEmails" 
-                    rows="3" 
-                    placeholder="ex c@c.com, j@j.com" ></textarea>
-                </div> */}
+               
                 <div class="col-10" id='create-submit-btn'>
                     <button type="submit" 
-                    class="btn btn-primary" 
+                    class="button btn-primary" 
                     onClick={handleFormSubmit}>Submit</button>
                 </div>
             </form>

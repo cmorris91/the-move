@@ -79,7 +79,7 @@ export  default function PlaceSearch(props) {
                 
             </PlacesAutoComplete>
             
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search</button>
+            <button className="button my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search <i class="fas fa-search"></i></button>
         </div>
         </Card>
         </Col>

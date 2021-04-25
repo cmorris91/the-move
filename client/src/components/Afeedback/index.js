@@ -7,7 +7,7 @@ function Afeedback(props){
 
 return(
   <div>
-  <h1 className="text-center">List of Events</h1>
+  <h1 className="text-center">What People Are Saying</h1>
   <List>
   {props.allfeedback ? props.allfeedback.map(event => (
     <ListItem key={event}>
