@@ -1,13 +1,29 @@
 .checkin-container {
-    margin-top: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .searchCheckinForm {
-    margin: 30px;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%; 
 }
 
+.form-input {
+    margin: 10px;
+    font-size: 22px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center;
+}
 

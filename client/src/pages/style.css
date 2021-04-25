@@ -4,14 +4,13 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* margin: 0 auto; */
     padding: 10px;
     font-family: 'Spartan', sans-serif;
 }
 
 .page-title {
     text-align: center;
-    font-family: 'Dosis', sans-serif;
+    font-family:'Raleway', sans-serif;
     color: #443742;
     font-size: 45px;
 
@@ -42,19 +41,12 @@
     height: 40px;
 }
 
-.btn {
-    background-color: #697268;
-    border: none;
-    font-size: 25px;
-}
-
 #create-submit-btn {
     display: flex;
     justify-content: center;
 }
 
 .check-in-container {
-    margin: 5%;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -64,7 +56,15 @@
 
 .form-input {
     width: 65%;
-    padding: 12px;
+    border: 0; 
+    padding: 4px 0; 
+    border-bottom: 1px solid #443742; 
+    background-color: transparent;
+    transition: 0.4s;
+    
+}
+.form-input:focus {
+    text-underline-position: below;
 }
 
 .comment-input {
@@ -80,6 +80,37 @@
 .button {
     border: none;
     border-radius: 5px;
+    padding: 15px;
+    background-color: #697268; 
+    color: white;
+    font-family:'Raleway', sans-serif;
+    font-size: 20px;
+} 
+
+.button:hover {
+    background-color: #59656F;
+    box-shadow: 2px 2px 4px #697268;
+    font-size: 22px;
+}
+
+.input-title {
+    font-family:'Raleway', sans-serif;
+    color: #443742;
+}
+
+.eventDetail-box {
+    border: 1px solid #697268;
+}
+.event-detail {
+    margin: 5px;
+    padding: 2px;
+}
+
+.label {
+    margin: 5px;
+    padding: 2px;
+    align-items: center;
+
     padding: 10px;
     background-color: #697268;
     /* max-width: 50%; */
@@ -91,4 +122,5 @@
 
 .table-row:hover {
     background-color: lightgray;
+
 }

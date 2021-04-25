@@ -50,8 +50,8 @@ function Checkin() {
 
         return(
           <div className="check-in-container">
-            <h2>
-              What do you think of this event?
+            <h2 className="page-title">
+              Let people know what you think of the event here!
             </h2>
             <div className="comment-input">
               <input
@@ -74,7 +74,7 @@ function Checkin() {
               />
             </div>
             <div>
-              <button className="button" onClick={handleFormSubmit} type="submit"> Hello</button>
+              <button className="button" onClick={handleFormSubmit} type="submit"> Check In!</button>
             </div>
           </div>
         )
