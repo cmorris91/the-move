@@ -8,7 +8,7 @@ console.log("images2",props.images)
     return(
         <div>
              {props.images?props.images.map(image =>(
-                <Image  key={image} src={image} size='medium' centered />)):<div />}
+                <Image className="images-array"  key={image} src={image} size='medium' centered />)):<div />}
         </div>
     )
 }
