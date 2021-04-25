@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import { ListItem } from "../components/List";
 import API from "../utils/API";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Table } from 'semantic-ui-react';
 =======
 import { Container, Button, List } from 'semantic-ui-react';
 >>>>>>> 6e1ed4bc9109913746281bb6e940a643eacc1632
+=======
+import { Table } from 'semantic-ui-react';
+import { Container, Button, List } from 'semantic-ui-react';
+>>>>>>> 6b6485d09db0b709e8a4aebce187547867f720f1
 import 'semantic-ui-css/semantic.min.css'
 
 function Bookmark (){
