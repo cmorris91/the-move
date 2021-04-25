@@ -9,7 +9,8 @@ import { Table } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 
 function Bookmark (){
-    //the state  keep track of events
+    //the state will keep track of events
+
     const [bookmarkState, setBookmarkState] = useState ({
         events:[]
     });

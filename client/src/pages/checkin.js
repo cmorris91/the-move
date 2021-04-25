@@ -1,5 +1,3 @@
-
-//Chelsey
 import React, { useState, useEffect}  from "react";
 import Rating from "../components/Rating";
 import {useParams} from "react-router-dom";
