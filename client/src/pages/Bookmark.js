@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ListItem } from "../components/List";
 import API from "../utils/API";
-import { Table } from 'semantic-ui-react';
 import { Container, Button, List } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
+
+
 import 'semantic-ui-css/semantic.min.css'
 
 function Bookmark (){
     //the state will keep track of events
+
     const [bookmarkState, setBookmarkState] = useState ({
         events:[]
     });

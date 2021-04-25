@@ -107,7 +107,6 @@ function refresh(){
             <Afeedback 
             className="feedback-item"   
             allfeedback={singleEvent.feedback} />
-             
             </div>
             </Grid.Column>
             <Grid.Column width={3}>
