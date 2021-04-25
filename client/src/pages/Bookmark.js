@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Container, List, ListItem } from "../components/List";
 import API from "../utils/API";
+import { Container, Table } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
 
 function Bookmark (){
+    const history = useHistory
     //the state wukk keep track of events
     const [bookmarkState, setBookmarkState] = useState ({
         events:[]
@@ -44,6 +47,9 @@ function Bookmark (){
         return null
     }
 
+    function handleRouter(eventid) {
+        history.push(`/event/${eventid}`)
+      }
 
 
 return (
@@ -54,10 +60,11 @@ return (
             {bookmarkState.events.map(event => (
             <ListItem key={event._id}>
               <Link to={"/event/" + event._id}  specific={event} >
-                <strong>
-                    {event.name}, {event.description}, {new Date(event.date).toDateString()}, {event.city}
-        
-                </strong>
+                <p>{event.name}</p> 
+                <p>{event.description}</p> 
+                <p>{new Date(event.date).toDateString()}</p> 
+                <p>{event.city}</p>
+                
               </Link>
               <button onClick={() => handleRemove(event._id)}>Delete</button>
             </ListItem>

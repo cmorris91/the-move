@@ -1,11 +1,18 @@
 //GINA
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Container, List, ListItem } from "../components/List";
+import { Link, withRouter } from "react-router-dom";
+// import { List, ListItem } from "../components/List";
 import API from "../utils/API";
-import PlaceSearch from "../components/PlaceSearch"
+import { Container, Table } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
+import "./style.css"
+import { ListItem } from "../components/List";
+// import PlaceSearch from "../components/PlaceSearch"
 
 class Event extends Component {
+  constructor(props){
+    super(props)
+  }
   state = {
     search: "",
     eventResults: [],
@@ -24,37 +31,41 @@ class Event extends Component {
    handleInputChange = event => {
      this.setState({ search: event.target.value });
    }
-  
-  //  handleBtnClick = event => {
-  //    event.preventDefault();
-  //    API.saveEvent(this.state.bookmark)
-  //    .then(res => {
-  //     console.log(res)
-  //    this.setState({ bookmark: res.data })})
-  //    this.context.router.push({
-  //     pathname: '/event/:id',
-  //     state: {event: this.state.eventResults}  
-  //   })
-  //   .catch (err => console.log(err));
-  //  }
+
+   handleRouter = eventid => {
+     this.props.history.push(`/event/${eventid}`)
+   }
+
 
   render() {
     return (
       <div>
         <h1 className="text-center">List of Events</h1>
         <Container>
-        <List>
-        {this.state.eventResults.map(event => (
-          <ListItem key={event._id}>
-              <Link to={"/event/" + event._id}  specific={event} >
-                <strong>
-                    {event.name}, {event.description}, {new Date(event.date).toDateString()}, {event.city}
-                </strong>
-              </Link>
-          </ListItem>
+        <Table fixed>
+          <Table.Header>
+          
+          <Table.Row>
+            <Table.HeaderCell>Date</Table.HeaderCell>
+            <Table.HeaderCell>Event Name</Table.HeaderCell>
+            <Table.HeaderCell>City</Table.HeaderCell>
+            <Table.HeaderCell>Description</Table.HeaderCell>
+          </Table.Row>
+          </Table.Header>
 
+        <Table.Body>
+        {this.state.eventResults.map(event => (
+          <Table.Row className="table-row" key={event._id} onClick={() => this.handleRouter(event._id)}>
+              
+                  <Table.Cell>{new Date(event.date).toDateString()}</Table.Cell> 
+                  <Table.Cell>{event.name}</Table.Cell> 
+                  <Table.Cell>{event.city}</Table.Cell>
+                  <Table.Cell textAlign="right">{event.description}</Table.Cell> 
+                
+          </Table.Row>
         ))}
-        </List>
+        </Table.Body>
+        </Table>
         </Container>
       </div>
     )
@@ -62,4 +73,4 @@ class Event extends Component {
 
 }
 
-export default Event;
+export default withRouter(Event);

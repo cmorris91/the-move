@@ -110,4 +110,17 @@
     margin: 5px;
     padding: 2px;
     align-items: center;
+
+    padding: 10px;
+    background-color: #697268;
+    /* max-width: 50%; */
+} 
+
+.table-row {
+    cursor: pointer;
+}
+
+.table-row:hover {
+    background-color: lightgray;
+
 }
