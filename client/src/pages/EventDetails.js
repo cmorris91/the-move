@@ -74,40 +74,44 @@ function refresh(){
     //renders the event data
     return (
             <Container textAlign="center">
+            <h1 className="event-title">{singleEvent.name}</h1>
             <Grid.Column width={9}>
         <div className="eventDetail-box">
-            <h1>{singleEvent.name}</h1>
             <div className="row"> 
                 <p className="event-detail col">{singleEvent.description}</p> 
             </div>
             <div className="row"> 
-                <p className="label col">Hosted By:</p>
+                <p className="label col">Hosted By :</p>
                 <p className="event-detail col">{singleEvent.host_name}</p>
             </div>
             <div className="row"> 
-                <p className="label col">When:</p>
+                <p className="label col">When :</p>
                 <p className="event-detail col">{new Date(singleEvent.date).toDateString()}</p>
             </div>
             <div className="row"> 
-                <p className="label col">Where:</p>
+                <p className="label col">Where :</p>
                 <p className="event-detail col">{singleEvent.address} <br/>{singleEvent.city} {singleEvent.state}, {singleEvent.zipcode}</p> 
                   
             </div>
             <div className="row"> 
-                <p className="label col">Type of Event:</p> 
+                <p className="label col">Type of Event :</p> 
                 <p className="event-detail col">{singleEvent.category}</p> 
             </div>
             <div className="row">  
-                <p className="label col">Rating</p>
+                <p className="label col">Rating :</p>
                 <p className="event-detail col"> {singleEvent.averageRating}</p>
             </div>
+            <Images2 images={singleEvent.images} />
             </div>
         <div>
-            <Afeedback allfeedback={singleEvent.feedback} />
+            <Afeedback 
+            className="feedback-item"   
+            allfeedback={singleEvent.feedback} />
              
             </div>
             </Grid.Column>
             <Grid.Column width={3}>
+              <div className="event-buttons">      
             <Button onClick={handleBookmarkSave}>
             <Icon name='bookmark outline' />
              Bookmark
@@ -118,7 +122,7 @@ function refresh(){
                  Check-in
                 </Button>
                 </Link>
-                <Images2 images={singleEvent.images} />
+                </div>
             </Grid.Column>
             {singleEvent.user_id === uid ? (
                 <DeleteButton 
