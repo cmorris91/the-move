@@ -1,5 +1,5 @@
 module.exports = {
-  Event: require("./event"),
-  Bookmark: require("./bookmark"),
-  User: require("./user")
+  Event: require("./Event"),
+  Bookmark: require("./Bookmark"),
+  User: require("./User")
 };
