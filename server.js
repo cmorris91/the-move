@@ -51,7 +51,7 @@ app.use(routes);
 
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb+srv://cmorris91:08Grade11@cluster0.vbiho.mongodb.net/theMove?retryWrites=true&w=majority" || "mongodb://localhost/the-move",
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/the-move",
 {
   useMongoClient: true,
   useNewUrlParser: true,
