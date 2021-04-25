@@ -1,4 +1,6 @@
 .navbar {
+    display: flex;
+    justify-content: space-evenly;
     background-color: #443742;
     font-family: 'Spartan', sans-serif;
 }

@@ -35,20 +35,27 @@ function SearchCheckIn () {
           <h1 className="page-title">Which Event would you like to check in to?</h1>
           </div>
             <form className='searchCheckinForm'>
+                <div className="inputs">
                 <input
                 className="form-input" 
                 name="name"
                 onChange={handleInputChange}
                 placeholder="Enter Event Name"/>
+                </div>
 
+                <div className="inputs">
                 <input 
+                className="form-input"
                 name="city"
                 onChange={handleInputChange}
                 placeholder="Enter Event City"/>
+                </div>
 
+                <div className="submit-button-container">
                 <button className="button" 
                 onClick={handleFormSubmit}
                 type="submit">Search</button>
+                </div>
             </form>
 
             <section className="searchEventsContainer">

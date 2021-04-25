@@ -11,19 +11,27 @@ import SeacrhCheckIn from "../src/components/SearchCheckIn"
 import EventDetail from "./pages/EventDetails"
 import Bookmark from "./pages/Bookmark";
 import { Form } from "semantic-ui-react";
+import logo from "./imgs/the-move-logo2.png";
 
+const styles = {
+  logo: {
+  display: "flex",
+  justifyContent: "center",
+  },
 
-
-
-
+  img: {
+    height: "100%",
+    width: "100%"
+  } 
+}
 function App() {
-
-  
-
   return (
     <Router>
       <div>
         <Navbar />
+        <div style={styles.logo}>
+        <img  src={logo}/>
+        </div>
        
         {/* <Wrapper> */}
         <Switch>
