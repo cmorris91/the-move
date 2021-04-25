@@ -97,3 +97,17 @@
     font-family:'Raleway', sans-serif;
     color: #443742;
 }
+
+.eventDetail-box {
+    border: 1px solid #697268;
+}
+.event-detail {
+    margin: 5px;
+    padding: 2px;
+}
+
+.label {
+    margin: 5px;
+    padding: 2px;
+    align-items: center;
+}
