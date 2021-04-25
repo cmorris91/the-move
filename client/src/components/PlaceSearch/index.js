@@ -7,6 +7,8 @@ import Row from "../Homepage/Row";
 import Col from "../Homepage/Col"
 import API from "../../utils/API";
 import {Link} from "react-router-dom";
+import { Input, Button } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
 
 
 export  default function PlaceSearch(props) {
@@ -48,7 +50,7 @@ export  default function PlaceSearch(props) {
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                 <div>
-                    <input {...getInputProps({ placeholder: "Search A Location!" })} />
+                    <Input icon="search" {...getInputProps({ placeholder: "Search A Location!" })} />
                     
 
                     <div className="autocomplete-dropdown-container">
@@ -78,8 +80,8 @@ export  default function PlaceSearch(props) {
                 )}
                 
             </PlacesAutoComplete>
-            
-            <button className="button my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search <i class="fas fa-search"></i></button>
+            <br/>
+            <Button primary className="button my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search</Button>
         </div>
         </Card>
         </Col>
@@ -104,7 +106,7 @@ export  default function PlaceSearch(props) {
                     </Link>
                     ))
                     ) : (
-                        <h1> No events</h1>
+                        <h3> No Events</h3>
                         )}
                     </Card>
             </Col>
