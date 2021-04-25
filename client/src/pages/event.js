@@ -1,13 +1,10 @@
 //GINA
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-// import { List, ListItem } from "../components/List";
 import API from "../utils/API";
-import { Container, Table } from 'semantic-ui-react';
+import { Container, Segment, Table } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 import "./style.css"
-import { ListItem } from "../components/List";
-// import PlaceSearch from "../components/PlaceSearch"
 
 class Event extends Component {
   constructor(props){
@@ -42,6 +39,7 @@ class Event extends Component {
       <div>
         <h1 className="text-center">List of Events</h1>
         <Container>
+          <Segment>
         <Table fixed>
           <Table.Header>
           
@@ -60,12 +58,13 @@ class Event extends Component {
                   <Table.Cell>{new Date(event.date).toDateString()}</Table.Cell> 
                   <Table.Cell>{event.name}</Table.Cell> 
                   <Table.Cell>{event.city}</Table.Cell>
-                  <Table.Cell textAlign="right">{event.description}</Table.Cell> 
+                  <Table.Cell textAlign="left">{event.description}</Table.Cell> 
                 
           </Table.Row>
         ))}
         </Table.Body>
         </Table>
+        </Segment>
         </Container>
       </div>
     )
