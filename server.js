@@ -53,6 +53,7 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/the-move",
 {
+  useMongoClient: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
