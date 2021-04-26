@@ -102,7 +102,7 @@ function refresh(){
                 <p className="event-detail col"> {singleEvent.averageRating}</p>
             </div>
             <div className="row"> 
-            <Images2  className="col" images={singleEvent.images} />
+            <Images2 images={singleEvent.images} />
             </div>
             </div>
         <div>

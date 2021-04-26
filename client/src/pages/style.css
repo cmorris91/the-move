@@ -156,12 +156,10 @@
     text-decoration: underline;
 }
 
-/* .images-array {
-
-
-} */
-
-
+.images-array {
+    margin: 10px;
+    padding: 5px;
+} 
 
 .checkinLink {
     float: right;
