@@ -1,5 +1,4 @@
 const db = require("../models");
-const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 module.exports = {
