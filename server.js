@@ -5,7 +5,7 @@ const routes = require("./routes");
 const passport = require("passport")
 const bodyParser = require("body-parser")
 const LocalStrategy = require("passport-local")
-
+require('dotenv').config()
 
 const app = express();
 const PORT = process.env.PORT || 3001;

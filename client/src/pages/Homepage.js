@@ -3,7 +3,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import Container from "../components/Homepage/Container";
 import PlaceSearch from "../components/PlaceSearch";
-import { Header} from 'semantic-ui-react';
+import { Header, Button} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 import "./style.css"
 
@@ -39,8 +39,12 @@ class Homepage extends Component {
 
                 <Header>
                 
-                   <Link floated="left" to={"/create"}>Create an Event</Link>
-                   <Link className="checkinLink" to={"/searchCheck-in"}>Check in to an Event</Link>
+                   <Link floated="left" to={"/create"}>
+                       <Button className="button">Create Event</Button>
+                   </Link>
+                   <Link className="checkinLink" to={"/searchCheck-in"}>
+                       <Button className="button">Check-In to Event</Button>
+                    </Link>
 
                 </Header>
 
