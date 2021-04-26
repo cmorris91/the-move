@@ -42,12 +42,12 @@ export default {
       return axios.delete("/api/Bookmark/" + id + "/" + uid)
     },
 
-    login: function(login){
-      return axios.post("/api/user/login", login)
+    login: function(data){
+      return axios.post("/api/user/login", data)
     },
 
-    signup: function(signup){
-      return axios.post("/api/user/signup", signup)
+    signup: function(data){
+      return axios.post("/api/user/signup", data)
     },
     getLocationList: function(description) {
       return axios.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyAASHUvtgIzAHEr6NyyZA9J4X0zo0GKYc4&libraries=places")
