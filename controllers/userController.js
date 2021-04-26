@@ -28,13 +28,8 @@ module.exports = {
     db.User
       .create(users)
       .then(dbModel => {
- 
-        req.session.save(() => {
-          req.session._id = dbModel._id;
-          req.session.user_id =dbModel.name
           res.status(200).json({dbModel});
       })
-    })
       .catch(err => res.status(422).json(err));
   },
 //grabs data and references model before it lets you in
@@ -46,9 +41,6 @@ module.exports = {
       .then(dbModel => {
         console.log(dbModel[0].password)
         if(req.body.password == dbModel[0].password){
-          req.session._id = dbModel._id;
-          req.session.user_id =dbModel.name
-          req.session.logged_in = true;
           res.status(200).json({dbModel});
         }else{
         res.status(404).json({message:"password or email are incorrect"})  
