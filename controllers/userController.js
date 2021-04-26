@@ -1,6 +1,4 @@
 const db = require("../models");
-const session = require('express-session');
-const MongoDBStore = require('connect-mongodb-session')(session);
 
 module.exports = {
   findAll: function(req, res) {
@@ -9,8 +7,8 @@ module.exports = {
         .populate("Event")
         .sort({ date: -1 })
         .then(dbModel => {
-          console.log(req.session)
-          res.json({dbModel, session: req.session})})
+      
+          res.json({dbModel})})
         .catch(err => res.status(422).json(err));
 },
   findById: function(req, res) {
@@ -18,8 +16,8 @@ module.exports = {
       .findById(req.params.id)
       .populate("Event")
       .then(dbModel => {
-        console.log(req.session)
-        res.json({dbModel, session: req.session})})
+
+        res.json({dbModel})})
       .catch(err => res.status(422).json(err));
   },
   //lets you sign up
@@ -28,12 +26,8 @@ module.exports = {
     db.User
       .create(users)
       .then(dbModel => {
- 
-        req.session.save(() => {
-          req.session._id = dbModel._id;
-          req.session.user_id =dbModel.name
           res.status(200).json({dbModel});
-      })
+      
     })
       .catch(err => res.status(422).json(err));
   },
@@ -42,13 +36,9 @@ module.exports = {
     db.User
  
       .find({email:req.body.email})
-      
       .then(dbModel => {
         console.log(dbModel[0].password)
         if(req.body.password == dbModel[0].password){
-          req.session._id = dbModel._id;
-          req.session.user_id =dbModel.name
-          req.session.logged_in = true;
           res.status(200).json({dbModel});
         }else{
         res.status(404).json({message:"password or email are incorrect"})  
