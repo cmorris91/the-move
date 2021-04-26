@@ -101,9 +101,9 @@ function refresh(){
                 <p className="label col">Rating :</p>
                 <p className="event-detail col"> {singleEvent.averageRating}</p>
             </div>
-            <div className="row"> 
+            
             <Images2 images={singleEvent.images} />
-            </div>
+           
             </div>
         <div>
             <Afeedback 
