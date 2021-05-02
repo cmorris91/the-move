@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import PlacesAutoComplete from "react-places-autocomplete";
-import Card from "../Homepage/Card";
+
 import Container from "../Homepage/Container";
 import Row from "../Homepage/Row";
 import Col from "../Homepage/Col"
@@ -40,8 +40,8 @@ export  default function PlaceSearch(props) {
             <Container>
             <Row>
                 <Col size="12">
-            <Card>
-        <div>
+            
+        <div className="home-feature">
             <PlacesAutoComplete
                 value={description}
                 onChange={setAddress}
@@ -50,7 +50,7 @@ export  default function PlaceSearch(props) {
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                 <div>
-                    <Input icon="search" {...getInputProps({ placeholder: "Search A Location!" })} />
+                    <Input  {...getInputProps({ placeholder: "Search A Location!" })} />
                     
 
                     <div className="autocomplete-dropdown-container">
@@ -80,10 +80,9 @@ export  default function PlaceSearch(props) {
                 )}
                 
             </PlacesAutoComplete>
-            <br/>
-            <Button primary className="button my-2 my-sm-0" type="submit" onClick={handleFormSubmit}>Search</Button>
+            <Button className="button" type="submit" onClick={handleFormSubmit}>Search</Button>
         </div>
-        </Card>
+        
         </Col>
         </Row>  
         </Container>  
@@ -92,7 +91,7 @@ export  default function PlaceSearch(props) {
         <Container>
             <Row>
                 <Col size="12">
-                    <Card heading="Events List">
+                    
                     {events ? (
                 events.filter(event => description.includes(event.city)).map(item => (
                     <Link to={"/event/" + item._id}  specific={item} >
@@ -106,9 +105,9 @@ export  default function PlaceSearch(props) {
                     </Link>
                     ))
                     ) : (
-                        <h3> No Events</h3>
+                        <h3></h3>
                         )}
-                    </Card>
+                    
             </Col>
         </Row>  
         </Container>  

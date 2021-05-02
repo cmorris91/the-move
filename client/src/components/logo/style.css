@@ -1,0 +1,28 @@
+.logo-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 20px;
+}
+
+.logo-name {
+    font-family: 'Satisfy', cursive;
+    font-size: 100px;
+    text-align: center;
+    color: #fff;
+    animation: glow 3s ease-in-out infinite alternate; 
+}
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 12px #d9e49e, 0 0 15px #d9e49e, 0 0 20px #d9e49e, 0 0 25px #d9e49e, 0 0 30px #d9e49e;
+    }
+    to {
+      text-shadow: 0 0 6px #fff, 0 0 14px #fff, 0 0 20px #d9e49e, 0 0 25px #d9e49e, 0 0 35px #d9e49e, 0 0 45px #d9e49e, 0 0 55px #d9e49e;
+    }
+  }
+
+  .img-logo {
+      height: 150px;
+      width: 150px;
+  }

@@ -1,5 +1,5 @@
 const db = require("../models");
-const MongoDBStore = require('connect-mongodb-session')(session);
+
 
 module.exports = {
   findAll: function(req, res) {
@@ -8,8 +8,8 @@ module.exports = {
         .populate("Event")
         .sort({ date: -1 })
         .then(dbModel => {
-          console.log(req.session)
-          res.json({dbModel, session: req.session})})
+      
+          res.json({dbModel})})
         .catch(err => res.status(422).json(err));
 },
   findById: function(req, res) {
@@ -17,8 +17,8 @@ module.exports = {
       .findById(req.params.id)
       .populate("Event")
       .then(dbModel => {
-        console.log(req.session)
-        res.json({dbModel, session: req.session})})
+
+        res.json({dbModel})})
       .catch(err => res.status(422).json(err));
   },
   //lets you sign up
@@ -28,7 +28,9 @@ module.exports = {
       .create(users)
       .then(dbModel => {
           res.status(200).json({dbModel});
+
       })
+
       .catch(err => res.status(422).json(err));
   },
 //grabs data and references model before it lets you in
@@ -36,7 +38,6 @@ module.exports = {
     db.User
  
       .find({email:req.body.email})
-      
       .then(dbModel => {
         console.log(dbModel[0].password)
         if(req.body.password == dbModel[0].password){
