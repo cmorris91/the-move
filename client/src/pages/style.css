@@ -142,9 +142,9 @@
     border: none;
 }
 
-.feedback-box {
-    margin: 30px;
+.feedbackBox {
     padding: 10px;
+    color: #ced4da;
 }
 
 .event-buttons {
@@ -153,14 +153,30 @@
 }
 
 .feedback-list {
-    text-decoration: underline;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 25px;
 }
 
 .images-array {
     margin: 10px;
     padding: 5px;
+    height:min-content
 } 
 
+.image-box {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid white;
+}
+
+.feedback-box {
+    border: 1px solid white;
+}
+
+.detail-info {
+    margin: 10px;
+}
 
 
 .homepage {
