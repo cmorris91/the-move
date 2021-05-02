@@ -90,7 +90,7 @@
 .button:hover {
     background-color: #59656F;
     box-shadow: 2px 2px 4px #697268;
-    font-size: 22px;
+    
 }
 
 .input-title {
@@ -161,6 +161,21 @@
     padding: 5px;
 } 
 
-.checkinLink {
-    float: right;
+
+
+.homepage {
+    display:flex;
+    justify-content: center;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.home-feature {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
 }
