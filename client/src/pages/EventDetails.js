@@ -6,6 +6,7 @@ import 'semantic-ui-css/semantic.min.css'
 import DeleteButton from "../../src/components/Delete"
 import Afeedback from "../components/Afeedback"
 import Images2 from "../components/Images2";
+import ImgButton from "../components/Images2/ImgButton"
 
 
 function EventDetail () {
@@ -13,10 +14,14 @@ function EventDetail () {
     const [singleEvent, setSingleEvent] = useState({
         event: []
     });
-const [saveBookmark, setSaveBookmark] = useState({
+    const [saveBookmark, setSaveBookmark] = useState({
                 //set the isBookmark to false to protect the server from trying to send null to the array
                 isBookmark:false
-        })
+        });
+
+    const [showImage, setShowImage] = useState({
+        isImage:false
+    });
         //gathers all the data it needs for event id and user id
         const url = window.location.pathname;
         const id = url.substring(url.lastIndexOf('/') + 1);
@@ -71,6 +76,16 @@ function refresh(){
         .catch(err => console.log(err))
       }
 
+      function handleBtnClick() {
+          console.log(showImage.isImage)
+         if(showImage.isImage === false) {
+             setShowImage({isImage: true})
+         }
+         else {
+            setShowImage({isImage: false})
+         }
+      }
+
     //renders the event data
     return (
     
@@ -109,7 +124,16 @@ function refresh(){
     </Container>
     <section className="detail-info row">
         <div className="image-box col">
-                <Images2 images={singleEvent.images} />
+            <div>
+            <ImgButton handleBtnClick={handleBtnClick}/>
+                {showImage.isImage === true ? (
+
+                    <Images2 images={singleEvent.images} />
+                ): (
+                    <p></p>
+                )
+            }
+            </div>
         </div>
 
         <div className="feedback-box col">

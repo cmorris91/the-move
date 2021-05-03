@@ -195,3 +195,8 @@
     justify-content: center;
     margin: 15px;
 }
+
+.imageBtn{
+    display: flex;
+    justify-content: center;
+}

@@ -9,7 +9,8 @@ class ImageUpload extends React.Component {
     
     let widget = window.cloudinary.createUploadWidget({ 
        cloudName: `dy1duzvrr`,
-       uploadPreset: `the-move`}, 
+       uploadPreset: `the-move`,
+       cropping: true}, 
     (error, result) => {
       if (!error && result && result.event === "success") { 
       this.props.updateImageState(result.info.url); 
