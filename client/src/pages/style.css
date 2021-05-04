@@ -10,10 +10,10 @@
 
 .page-title {
     text-align: center;
-    font-family:'Raleway', sans-serif;
+    font-family:'Spartan', sans-serif;
     color: #f7ebec;
     font-size: 45px;
-
+    animation: fade-in 3s ease-in-out;
 }
 
 #eventDate {
@@ -55,12 +55,15 @@
 }
 
 .form-input {
-    width: 85%;
+    width: 100%;
     border: 0; 
-    padding: 4px 0; 
+    padding: 15px; 
+    margin: 10px;
     border-bottom: 1px solid #443742; 
     background-color: transparent;
-    transition: 0.4s;
+    color: white;
+    font-size: 30px;
+    font-family: 'Spartan', sans-serif;
     
 }
 .form-input:focus {
@@ -106,9 +109,7 @@
     border-radius: 8px;
     color: white;
 }
-/* .eventDetail-box:hover {
-    box-shadow: 2px 2px 4px #443742;
-} */
+
 .event-detail {
     margin: 5px;
     padding: 2px;
@@ -135,7 +136,7 @@
     font-size: 60px;
     color: #e2e8c0;
     font-family: 'Spartan', sans-serif;
-    animation: fade-in 4s ease-in-out;
+    animation: fade-in 3s ease-in-out;
     
 }
 
@@ -230,4 +231,53 @@
     width: 50%;
     margin: 0 auto;
     border-bottom: 2px solid white;
+}
+
+.ui.table {
+    font-size: 1.5em;
+    text-align: center;
+}
+.ui.table thead th{
+    background-color: #443742;
+    color: white;
+    font-size: 25px;
+    font-family: Raleway, sans-serif;
+}
+
+.table-row {
+    background-color: #f7ebec;
+    color: #443742;
+    padding: 20px
+}
+
+.ui.segment {
+    padding: 20px;
+    background-image: url("../imgs/the-move-graphic.png");
+    
+}
+.ui.container {
+    width: 100%;
+}
+
+.bookmark-box {
+    margin-top: 25px;
+    text-align: center;
+    padding: 40px;
+    background-image: url("../imgs/the-move-graphic.png");
+    background-color: #e2e8c0;
+}
+
+ .list-group-item {
+    background-color: #dee0d3fa;
+    padding: 30px;
+    font-size: 22px;
+    text-align: center;
+    margin: 30px;
+    border: 5px solid #443742;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px #504d4d;
+}
+
+.list-group-item p {
+    color: #443742;
 }
