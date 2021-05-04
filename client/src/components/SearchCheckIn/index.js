@@ -62,6 +62,7 @@ function SearchCheckIn () {
             </form>
 
             <section className="searchEventsContainer">
+            <p style={{fontSize: "30px", color: "white"}}>What's the Move?</p>
             {searchEvent.results.map(event => (
             <ResultEvents
             key= {event._id}

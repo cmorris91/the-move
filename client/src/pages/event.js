@@ -37,7 +37,7 @@ class Event extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center">List of Events</h1>
+        <h1 className="page-title" >What's the Move?</h1>
         <Container>
           <Segment>
         <Table fixed>

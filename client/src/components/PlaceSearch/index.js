@@ -87,8 +87,7 @@ export  default function PlaceSearch(props) {
         </Row>  
         </Container>  
         
-        <div>
-        <Container>
+        <div className="results-box">
             <Row>
                 <Col size="12">
                     
@@ -96,21 +95,21 @@ export  default function PlaceSearch(props) {
                 events.filter(event => description.includes(event.city)).map(item => (
                     <Link to={"/event/" + item._id}  specific={item} >
                         <div className="eventCard">
-                        <p>Event Name: {item.name}</p>
-                        <p>Event Description: {item.description}</p>
-                        <p>Event City: {item.city}</p>
-                        <p>Event Date: {new Date(item.date).toDateString()}</p>
+                        <p style={{fontSize: "30px", textDecoration: "underline"}}>{item.name}</p>
+                        <p>{item.description}</p>
+                        <p>Where: {item.city}</p>
+                        <p>When: {new Date(item.date).toDateString()}</p>
                         <hr/>
                         </div>
                     </Link>
                     ))
                     ) : (
-                        <h3></h3>
+                        <p style={{fontSize: "30px", color: "white"}}>What's The Move?</p>
                         )}
                     
             </Col>
         </Row>  
-        </Container>  
+
         </div>
         </div>
     );

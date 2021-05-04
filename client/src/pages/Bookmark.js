@@ -54,21 +54,21 @@ return (
         <div>
             <h1 className=" page-title text-center">Saved Events</h1>
             <br/>
-          <Container>
-          <List divided verticalAlign="middle">
+          <Container className="bookmark-box" style={{width: "55%"}}>
+          <List divided verticalAlign="middle" className="bookmark-list">
 
           <List.Content centered list={listBookmark.list} onRemove={handleRemove}>
               
             {bookmarkState.events.map(event => (
-            <ListItem key={event._id}>
+            <ListItem className="listItem" key={event._id}>
 
-              <Button floated="right" onClick={() => handleRemove(event._id)}>Delete</Button>
                 
                 <Link to={"/event/" + event._id}  specific={event} >
                 <p>{new Date(event.date).toDateString()}, {event.city}</p> 
                 <p>{event.name}</p>
                 
               </Link>
+              <button className="button" floated="right" onClick={() => handleRemove(event._id)}>Delete</button>
               
             </ListItem>
             ))}
