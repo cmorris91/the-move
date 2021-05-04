@@ -11,7 +11,7 @@
 .page-title {
     text-align: center;
     font-family:'Raleway', sans-serif;
-    color: #443742;
+    color: #f7ebec;
     font-size: 45px;
 
 }
@@ -55,7 +55,7 @@
 }
 
 .form-input {
-    width: 65%;
+    width: 85%;
     border: 0; 
     padding: 4px 0; 
     border-bottom: 1px solid #443742; 
@@ -79,10 +79,12 @@
 
 .button {
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
+    margin: 10px;
     padding: 15px;
+    background-image: url("../imgs/button.png");
     background-color: #697268; 
-    color: white;
+    color: black;
     font-family:'Raleway', sans-serif;
     font-size: 20px;
 } 
@@ -102,17 +104,15 @@
     font-family:'Raleway', sans-serif;
     border:none;
     border-radius: 8px;
-    background: rgb(68,55,66);
-    background: linear-gradient(90deg, rgba(68,55,66,0.7525385154061625) 0%, rgba(105,114,104,0.469625350140056) 100%);
     color: white;
 }
-.eventDetail-box:hover {
+/* .eventDetail-box:hover {
     box-shadow: 2px 2px 4px #443742;
-}
+} */
 .event-detail {
     margin: 5px;
     padding: 2px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .label {
@@ -120,7 +120,7 @@
     padding: 2px;
     align-items: center;
     padding: 10px;
-    font-size: 20px;
+    font-size: 25px;
 } 
 
 .table-row {
@@ -132,9 +132,16 @@
 }
 
 .event-title {
-    font-size: 45px;
-    color: #59656f;
+    font-size: 60px;
+    color: #e2e8c0;
     font-family: 'Spartan', sans-serif;
+    animation: fade-in 4s ease-in-out;
+    /* animation-delay: 1s; */
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .feedback-item {
@@ -153,9 +160,12 @@
 }
 
 .feedback-list {
-    border: 1px solid white;
     text-align: center;
     font-size: 25px;
+    background-color: #f7ebec;
+    color: #443742;
+    border-radius: 5px;
+    width: 50%;
 }
 
 .images-array {
@@ -167,11 +177,20 @@
 .image-box {
   display: flex;
   justify-content: space-around;
-  border: 1px solid white;
+  margin: 40px;
+  padding: 25px;
+  box-shadow: -4px 1px 8px #f7ebec;
+  border-radius: 5px;
+  background-image: url("../imgs/the-move-graphic.png");
 }
 
 .feedback-box {
-    border: 1px solid white;
+    margin: 40px;
+    padding: 25px;
+    box-shadow: 4px 1px 8px #f7ebec;
+    border-radius: 5px;
+    background-image: url("../imgs/the-move-graphic.png");
+    
 }
 
 .detail-info {
@@ -194,4 +213,21 @@
     display: flex;
     justify-content: center;
     margin: 15px;
+}
+
+.imageBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.event-images {
+    background-color: #443742b8;;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.detail {
+    width: 50%;
+    margin: 0 auto;
+    border-bottom: 2px solid white;
 }

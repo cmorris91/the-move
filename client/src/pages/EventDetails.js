@@ -6,6 +6,7 @@ import 'semantic-ui-css/semantic.min.css'
 import DeleteButton from "../../src/components/Delete"
 import Afeedback from "../components/Afeedback"
 import Images2 from "../components/Images2";
+import ImgButton from "../components/Images2/ImgButton"
 
 
 function EventDetail () {
@@ -13,10 +14,14 @@ function EventDetail () {
     const [singleEvent, setSingleEvent] = useState({
         event: []
     });
-const [saveBookmark, setSaveBookmark] = useState({
+    const [saveBookmark, setSaveBookmark] = useState({
                 //set the isBookmark to false to protect the server from trying to send null to the array
                 isBookmark:false
-        })
+        });
+
+    const [showImage, setShowImage] = useState({
+        isImage:false
+    });
         //gathers all the data it needs for event id and user id
         const url = window.location.pathname;
         const id = url.substring(url.lastIndexOf('/') + 1);
@@ -71,6 +76,16 @@ function refresh(){
         .catch(err => console.log(err))
       }
 
+      function handleBtnClick() {
+          console.log(showImage.isImage)
+         if(showImage.isImage === false) {
+             setShowImage({isImage: true})
+         }
+         else {
+            setShowImage({isImage: false})
+         }
+      }
+
     //renders the event data
     return (
     
@@ -80,27 +95,27 @@ function refresh(){
     <Grid.Column width={9}>
         <div className="eventDetail-box">
             <div className="row"> 
-                <p className="event-detail col">{singleEvent.description}</p> 
+                <p className="event-detail col" style={{margin: "40px", fontSize: "33px"}}>{singleEvent.description}</p> 
             </div>
-        <div className="row"> 
-            <p className="label col">Hosted By :</p>
+        <div className="detail row"> 
+            <p className="label col">Hosted By  </p>
             <p className="event-detail col">{singleEvent.host_name}</p>
         </div>
-        <div className="row"> 
-            <p className="label col">When :</p>
+        <div className="detail row"> 
+            <p className="label col">When </p>
             <p className="event-detail col">{new Date(singleEvent.date).toDateString()}</p>
         </div>
-        <div className="row"> 
-            <p className="label col">Where :</p>
+        <div className="detail row"> 
+            <p className="label col">Where  </p>
             <p className="event-detail col">{singleEvent.address} <br/>{singleEvent.city} {singleEvent.state}, {singleEvent.zipcode}</p> 
             
         </div>
-        <div className="row"> 
-            <p className="label col">Type of Event :</p> 
+        <div className="detail row"> 
+            <p className="label col">Type of Event  </p> 
             <p className="event-detail col">{singleEvent.category}</p> 
         </div>
-        <div className="row">  
-            <p className="label col">Rating :</p>
+        <div className="detail row">  
+            <p className="label col">Rating  </p>
             <p className="event-detail col"> {singleEvent.averageRating}</p>
         </div>
         </div>
@@ -109,7 +124,14 @@ function refresh(){
     </Container>
     <section className="detail-info row">
         <div className="image-box col">
-                <Images2 images={singleEvent.images} />
+            <div>
+            <ImgButton handleBtnClick={handleBtnClick}/>
+                {showImage.isImage === true ? (
+                    <Images2 images={singleEvent.images} />
+                ): (
+                    <p></p>
+                )}
+            </div>
         </div>
 
         <div className="feedback-box col">
@@ -122,15 +144,16 @@ function refresh(){
     <Container textAlign="center">
     <Grid.Column width={3}>
         <div className="event-buttons">      
-            <Button onClick={handleBookmarkSave}>
+            <button className="button" onClick={handleBookmarkSave}>
             <Icon name='bookmark outline' />
              Bookmark
-             </Button>
+             </button>
              <Link to={`/check-in/${singleEvent._id}`}>
-             <Button>
+             <button className="button" >
+                 
              <Icon name='map marker alternate' />
                  Check-in
-                </Button>
+                </button>
                 </Link>
         </div>
     </Grid.Column>
