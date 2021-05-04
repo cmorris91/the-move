@@ -52,7 +52,7 @@ function Bookmark (){
 
 return (
         <div>
-            <h1 className="text-center">Bookmark</h1>
+            <h1 className=" page-title text-center">Saved Events</h1>
             <br/>
           <Container>
           <List divided verticalAlign="middle">

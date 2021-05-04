@@ -7,7 +7,7 @@ function Afeedback(props){
 
 return(
   <div className="feedbackBox">
-  <h1 className="text-center" style={{fontSize: "45px"}}>What People Are Saying</h1>
+  <h1 className="text-center" style={{fontSize: "45px", color: "white"}}>What People Are Saying</h1>
   <div style={{display: "flex", justifyContent: "center"}}>
   {props.allfeedback ? props.allfeedback.map(event => (
     <p className="feedback-list" key={event}> 

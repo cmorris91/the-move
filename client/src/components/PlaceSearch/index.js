@@ -50,7 +50,7 @@ export  default function PlaceSearch(props) {
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                 <div>
-                    <Input  {...getInputProps({ placeholder: "Search A Location!" })} />
+                    <input className="form-input" {...getInputProps({ placeholder: "Search A Location!" })} />
                     
 
                     <div className="autocomplete-dropdown-container">
@@ -80,7 +80,7 @@ export  default function PlaceSearch(props) {
                 )}
                 
             </PlacesAutoComplete>
-            <Button className="button" type="submit" onClick={handleFormSubmit}>Search</Button>
+            <button className="button" type="submit" style={{margin: "0"}} onClick={handleFormSubmit}>Search</button>
         </div>
         
         </Col>

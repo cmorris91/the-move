@@ -95,27 +95,27 @@ function refresh(){
     <Grid.Column width={9}>
         <div className="eventDetail-box">
             <div className="row"> 
-                <p className="event-detail col">{singleEvent.description}</p> 
+                <p className="event-detail col" style={{margin: "40px", fontSize: "33px"}}>{singleEvent.description}</p> 
             </div>
         <div className="detail row"> 
-            <p className="label col">Hosted By :</p>
+            <p className="label col">Hosted By  </p>
             <p className="event-detail col">{singleEvent.host_name}</p>
         </div>
         <div className="detail row"> 
-            <p className="label col">When :</p>
+            <p className="label col">When </p>
             <p className="event-detail col">{new Date(singleEvent.date).toDateString()}</p>
         </div>
         <div className="detail row"> 
-            <p className="label col">Where :</p>
+            <p className="label col">Where  </p>
             <p className="event-detail col">{singleEvent.address} <br/>{singleEvent.city} {singleEvent.state}, {singleEvent.zipcode}</p> 
             
         </div>
         <div className="detail row"> 
-            <p className="label col">Type of Event :</p> 
+            <p className="label col">Type of Event  </p> 
             <p className="event-detail col">{singleEvent.category}</p> 
         </div>
         <div className="detail row">  
-            <p className="label col">Rating :</p>
+            <p className="label col">Rating  </p>
             <p className="event-detail col"> {singleEvent.averageRating}</p>
         </div>
         </div>
@@ -144,15 +144,16 @@ function refresh(){
     <Container textAlign="center">
     <Grid.Column width={3}>
         <div className="event-buttons">      
-            <Button onClick={handleBookmarkSave}>
+            <button className="button" onClick={handleBookmarkSave}>
             <Icon name='bookmark outline' />
              Bookmark
-             </Button>
+             </button>
              <Link to={`/check-in/${singleEvent._id}`}>
-             <Button>
+             <button className="button" >
+                 
              <Icon name='map marker alternate' />
                  Check-in
-                </Button>
+                </button>
                 </Link>
         </div>
     </Grid.Column>

@@ -40,12 +40,12 @@ class Homepage extends Component {
                 <div className="home-container">
                     <div className="home-feature">
                         <Link to={"/create"} >
-                            <Button className="button">Create Event</Button>
+                            <button className="button">Create Event</button>
                         </Link>
                    </div>
                    <div className="home-feature">
                         <Link className="checkinLink" to={"/searchCheck-in"} >
-                            <Button className="button">Check-In to Event</Button>
+                            <button className="button">Check-In to Event</button>
                         </Link>
                     </div>
                     <div className="home-feature">
