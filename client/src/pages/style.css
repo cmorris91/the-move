@@ -102,9 +102,7 @@
     font-family:'Raleway', sans-serif;
     border:none;
     border-radius: 8px;
-    background: rgb(68,55,66);
-    background: linear-gradient(90deg, rgba(68,55,66,0.7525385154061625) 0%, rgba(105,114,104,0.469625350140056) 100%);
-    color: white;
+    color: black;
 }
 .eventDetail-box:hover {
     box-shadow: 2px 2px 4px #443742;
@@ -153,9 +151,12 @@
 }
 
 .feedback-list {
-    border: 1px solid white;
     text-align: center;
     font-size: 25px;
+    background-color: #f7ebec;
+    color: #443742;
+    border-radius: 5px;
+    width: 50%;
 }
 
 .images-array {
@@ -167,11 +168,20 @@
 .image-box {
   display: flex;
   justify-content: space-around;
-  border: 1px solid white;
+  margin: 40px;
+  padding: 25px;
+  box-shadow: -11px -1px 10px #f7ebec;
+  border-radius: 5px;
+  background-image: url("../imgs/the-move-graphic.png");
 }
 
 .feedback-box {
-    border: 1px solid white;
+    margin: 40px;
+    padding: 25px;
+    box-shadow: 11px 1px 10px #f7ebec;
+    border-radius: 5px;
+    background-image: url("../imgs/the-move-graphic.png");
+    
 }
 
 .detail-info {
@@ -199,4 +209,15 @@
 .imageBtn{
     display: flex;
     justify-content: center;
+}
+
+.event-images {
+    background-color: #443742b8;;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.detail {
+    width: 50%;
+    margin: 0 auto;
 }

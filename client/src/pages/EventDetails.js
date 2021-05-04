@@ -97,24 +97,24 @@ function refresh(){
             <div className="row"> 
                 <p className="event-detail col">{singleEvent.description}</p> 
             </div>
-        <div className="row"> 
+        <div className="detail row"> 
             <p className="label col">Hosted By :</p>
             <p className="event-detail col">{singleEvent.host_name}</p>
         </div>
-        <div className="row"> 
+        <div className="detail row"> 
             <p className="label col">When :</p>
             <p className="event-detail col">{new Date(singleEvent.date).toDateString()}</p>
         </div>
-        <div className="row"> 
+        <div className="detail row"> 
             <p className="label col">Where :</p>
             <p className="event-detail col">{singleEvent.address} <br/>{singleEvent.city} {singleEvent.state}, {singleEvent.zipcode}</p> 
             
         </div>
-        <div className="row"> 
+        <div className="detail row"> 
             <p className="label col">Type of Event :</p> 
             <p className="event-detail col">{singleEvent.category}</p> 
         </div>
-        <div className="row">  
+        <div className="detail row">  
             <p className="label col">Rating :</p>
             <p className="event-detail col"> {singleEvent.averageRating}</p>
         </div>
@@ -127,12 +127,10 @@ function refresh(){
             <div>
             <ImgButton handleBtnClick={handleBtnClick}/>
                 {showImage.isImage === true ? (
-
                     <Images2 images={singleEvent.images} />
                 ): (
                     <p></p>
-                )
-            }
+                )}
             </div>
         </div>
 

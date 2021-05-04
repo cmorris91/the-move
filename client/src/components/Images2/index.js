@@ -7,7 +7,7 @@ console.log("images2",props.images)
         
         <div className="event-images row">
              {props.images?props.images.map(image =>(
-                <Image style={{height: "min-content"}} className="images-array col-md-6 "  key={image} src={image} size='medium' centered />)):<div />}
+                <Image style={{height: "min-content"}} className="images-array col-md-6 "  key={image} src={image} size='small' centered />)):<div />}
         </div>
     
     )
