@@ -22,9 +22,15 @@
 }
 
 .drop-down {
-    border: 1px solid #ced4da;
+    border: none;
     border-radius: 0.25rem;
     height: 40px;
+    background-color: #2f262e;
+    color: rgb(146 143 143);
+    font-size: 22px;
+    font-family: Spartan, sans-serif;
+    padding-right: 10px;
+    padding-left: 15px;
 }
 
 .inputs {
@@ -100,14 +106,17 @@
 
 .input-title {
     font-family:'Raleway', sans-serif;
-    color: #443742;
+    color: #f7ebec;
 }
 
 .eventDetail-box {
     font-family:'Raleway', sans-serif;
-    border:none;
+    border: 5px solid #443742;
     border-radius: 8px;
-    color: white;
+    color: #443742;
+    background-color: #dee0d3fa;
+    width: 75%;
+    margin: auto;
 }
 
 .event-detail {
@@ -167,6 +176,9 @@
     color: #443742;
     border-radius: 5px;
     width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .images-array {
@@ -230,7 +242,7 @@
 .detail {
     width: 50%;
     margin: 0 auto;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #f7ebec;
 }
 
 .ui.table {
@@ -281,3 +293,10 @@
 .list-group-item p {
     color: #443742;
 }
+
+input:focus {
+    outline: none;
+    background-color: #443742;
+}
+
+

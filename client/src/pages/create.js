@@ -51,12 +51,12 @@ function Create () {
     <div className="create">
         <div>
         <h1 className="page-title" id="event-title">Create Your Event</h1>
-            <p style={{textAlign: "center"}}>*Please fill out all fields</p>
+            <p style={{textAlign: "center", color: "white"}}>*Please fill out all fields</p>
         </div>
         <section className="event-form">
             <form className="row g-3" id='create-form'>
                 <div className="col-md-12  inputs" id='eventDate'>
-                    <label for="eventDate" style={{marginRight: "10px", padding: "10px"}}>Event Date</label>
+                    <label for="eventDate" style={{marginRight: "10px", padding: "10px", color: "rgb(146 143 143)", fontSize: "22px"}}>Event Date</label>
                     <input type="date" 
                     id="eventDate" 
                     name="date" 
@@ -65,7 +65,7 @@ function Create () {
                 </div>
                 <div className="col-md-10 inputs">
                     <input type="text" 
-                    className="form-control" 
+                    className="form-input" 
                     id="inputEventName" 
                     placeholder="Event Name" 
                     name="name" 
@@ -73,7 +73,7 @@ function Create () {
                 </div>
                 <div className= "col-md-10 inputs">
                     <input type="text" 
-                    className="form-control" 
+                    className="form-input" 
                     id="inputHostName" 
                     placeholder="Host Name" 
                     name="host_name" 
@@ -96,7 +96,7 @@ function Create () {
                     </select>
                 </div>
                 <div className="form-floating col-md-10 inputs">
-                    <textarea className="form-control" 
+                    <textarea className="form-input" 
                     placeholder="Tell Us About Your Event!" 
                     id="eventDescription" 
                     style={{height: "100px"}} 
@@ -105,7 +105,7 @@ function Create () {
                 </div>
                 <div className= "col-md-10 inputs">
                     <input type="text" 
-                    className="form-control" 
+                    className="form-input" 
                     id="inputStreetAddress" 
                     placeholder="Enter Street Address" 
                     name="address" 
@@ -113,7 +113,7 @@ function Create () {
                 </div>
                 <div className= "col-md-10 inputs">
                     <input type="text" 
-                    className="form-control" id="inputCity" 
+                    className="form-input" id="inputCity" 
                     placeholder="City" name="city" 
                     onChange={handleInputChange}/>
                 </div>
@@ -179,7 +179,7 @@ function Create () {
                 </div>
                 <div className="col-md-10 inputs">
                     <input type="text" 
-                    className="form-control" 
+                    className="form-input" 
                     id="inputZip" 
                     placeholder="Zip Code" 
                     name="zipcode" 
