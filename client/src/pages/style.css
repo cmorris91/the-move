@@ -136,7 +136,7 @@
     color: #e2e8c0;
     font-family: 'Spartan', sans-serif;
     animation: fade-in 4s ease-in-out;
-    /* animation-delay: 1s; */
+    
 }
 
 @keyframes fade-in {

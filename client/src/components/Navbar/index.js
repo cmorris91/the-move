@@ -1,5 +1,4 @@
 import React from "react";
-import PlaceSearch from "../PlaceSearch";
 import "./style.css"
 
 
@@ -19,7 +18,7 @@ function logout(){
 return (
 
 
-  <nav className="navbar navbar-dark">
+  <nav className="navbar ">
     <a className="navbar-brand" href="/">
       Home
     </a>

@@ -4,3 +4,15 @@
     background-color: #2f262e;
     font-family: 'Spartan', sans-serif;
 }
+
+.navbar-brand {
+    font-size: 20px;
+    color: #f7ebec;
+    margin-right: 0;
+}
+
+.navbar-brand:hover {
+    color: #a59c9d;
+    text-decoration: underline;
+}
+
